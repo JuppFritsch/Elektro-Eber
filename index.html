@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ Elektro Eber | Innovative Elektroinstallationen</title>
+    <meta name="description" content="Elektro Eber - Ihr innovativer Elektroinstallationsbetrieb. Professionelle Elektroarbeiten von Dennis Eckert, Jupp Fritsch und Cameron Grayling.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-bolt"></i>
+                <span>Elektro Eber</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebar-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#stats" class="nav-link"><i class="fas fa-chart-line"></i> Statistiken</a></li>
+            <li><a href="#services" class="nav-link"><i class="fas fa-cogs"></i> Leistungen</a></li>
+            <li><a href="#team" class="nav-link"><i class="fas fa-users"></i> Team</a></li>
+            <li><a href="#projects" class="nav-link"><i class="fas fa-briefcase"></i> Projekte</a></li>
+            <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Kontakt</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <div class="contact-quick">
+                <p><i class="fas fa-phone"></i> +49 123 456789</p>
+                <p><i class="fas fa-envelope"></i> info@elektro-eber.de</p>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <!-- Top Navigation Bar -->
+        <header class="top-nav">
+            <button class="sidebar-toggle" id="sidebar-open">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-actions">
+                <a href="#contact" class="btn-cta">Kostenloses Angebot</a>
+                <div class="emergency-call">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>24/7 Notdienst</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section with Split Layout -->
+        <section id="home" class="hero-split">
+            <div class="hero-left">
+                <div class="hero-badge">
+                    <span class="badge-text">⚡ Seit 2023 ⚡</span>
+                </div>
+                <h1 class="hero-title">
+                    Elektro<span class="highlight">Eber</span>
+                    <div class="title-sub">Innovative Elektroinstallationen</div>
+                </h1>
+                <p class="hero-description">
+                    Wir bringen Strom in Ihr Leben! Von Smart-Home-Lösungen bis hin zu 
+                    Industrieanlagen - unser Expertenteam realisiert Ihre elektrischen Träume 
+                    mit modernster Technologie und jahrelanger Erfahrung.
+                </p>
+                <div class="hero-cta-group">
+                    <a href="#contact" class="btn-primary-large">
+                        <span>Projekt starten</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <div class="hero-stats-mini">
+                        <div class="stat-mini">
+                            <span class="stat-number">150+</span>
+                            <span class="stat-label">Projekte</span>
+                        </div>
+                        <div class="stat-mini">
+                            <span class="stat-number">5⭐</span>
+                            <span class="stat-label">Bewertung</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-visual-new">
+                    <div class="circuit-board">
+                        <div class="circuit-line line-1"></div>
+                        <div class="circuit-line line-2"></div>
+                        <div class="circuit-line line-3"></div>
+                        <div class="circuit-node node-1">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="circuit-node node-2">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="circuit-node node-3">
+                            <i class="fas fa-solar-panel"></i>
+                        </div>
+                        <div class="circuit-node node-4">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Statistics Dashboard -->
+        <section id="stats" class="stats-dashboard">
+            <div class="dashboard-header">
+                <h2>Live Unternehmensdaten</h2>
+                <div class="status-indicator">
+                    <span class="status-dot"></span>
+                    <span>Aktuell verfügbar</span>
+                </div>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-target="247">0</div>
+                        <div class="stat-label">Abgeschlossene Projekte</div>
+                        <div class="stat-growth">+12% dieses Jahr</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-target="189">0</div>
+                        <div class="stat-label">Zufriedene Kunden</div>
+                        <div class="stat-growth">98% Weiterempfehlung</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-target="24">0</div>
+                        <div class="stat-label">Stunden Notdienst</div>
+                        <div class="stat-growth">365 Tage im Jahr</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-target="2">0</div>
+                        <div class="stat-label">Jahre Erfahrung</div>
+                        <div class="stat-growth">Gegründet 2023</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services with Tabs Layout -->
+        <section id="services" class="services-tabs">
+            <div class="section-intro">
+                <div class="intro-content">
+                    <h2>Unsere Expertise</h2>
+                    <p>Von der ersten Beratung bis zur finalen Abnahme - wir begleiten Sie durch alle Phasen Ihres Elektroprojekts.</p>
+                </div>
+            </div>
+            
+            <div class="tabs-container">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="residential">
+                        <i class="fas fa-home"></i>
+                        <span>Wohnbau</span>
+                    </button>
+                    <button class="tab-btn" data-tab="commercial">
+                        <i class="fas fa-building"></i>
+                        <span>Gewerbe</span>
+                    </button>
+                    <button class="tab-btn" data-tab="industrial">
+                        <i class="fas fa-industry"></i>
+                        <span>Industrie</span>
+                    </button>
+                    <button class="tab-btn" data-tab="smart">
+                        <i class="fas fa-brain"></i>
+                        <span>Smart Tech</span>
+                    </button>
+                </div>
+                
+                <div class="tab-content">
+                    <div class="tab-panel active" id="residential">
+                        <div class="service-showcase">
+                            <div class="showcase-content">
+                                <h3>Wohngebäude & Privat</h3>
+                                <div class="service-list">
+                                    <div class="service-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Komplette Hausinstallationen</span>
+                                    </div>
+                                    <div class="service-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Renovierung & Modernisierung</span>
+                                    </div>
+                                    <div class="service-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Sicherheitssysteme</span>
+                                    </div>
+                                    <div class="service-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>LED-Beleuchtungskonzepte</span>
+                                    </div>
+                                </div>
+                                <div class="showcase-stats">
+                                    <div class="mini-stat">
+                                        <span class="mini-number" data-target="89">0</span>
+                                        <span>Häuser installiert</span>
+                                    </div>
+                                    <div class="mini-stat">
+                                        <span class="mini-number" data-target="15">0</span>
+                                        <span>Ø Tage pro Projekt</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="showcase-visual">
+                                <div class="visual-house">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-panel" id="commercial">
+                        <div class="service-showcase">
+                            <div class="showcase-content">
+                                <h3>Gewerbe & Büros</h3>
+                                <div class="service-list">
+                                    <div class="service-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Bürogebäude & Praxen</span>
+                                    </div>
+                                    <div class="service-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Ladengeschäfte & Restaurants</span>
+                                    </div>
+                                    <div class="service-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Netzwerk & IT-Infrastruktur</span>
+                                    </div>
+                                    <div class="service-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Beleuchtungssteuerung</span>
+                                    </div>
+                                </div>
+                                <div class="showcase-stats">
+                                    <div class="mini-stat">
+                                        <span class="mini-number" data-target="34">0</span>
+                                        <span>Gewerbeprojekte</span>
+                                    </div>
+                                    <div class="mini-stat">
+                                        <span class="mini-number" data-target="95">0</span>
+                                        <span>% Termintreue</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="showcase-visual">
+                                <div class="visual-building">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-panel" id="industrial">
+                        <div class="service-showcase">
+                            <div class="showcase-content">
+                                <h3>Industrie & Produktion</h3>
+                                <div class="service-list">
+                                    <div class="service-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Maschinenschaltschränke</span>
+                                    </div>
+                                    <div class="service-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Industriesteuerungen</span>
+                                    </div>
+                                    <div class="service-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Wartung & Instandhaltung</span>
+                                    </div>
+                                    <div class="service-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Störungsbeseitigung 24/7</span>
+                                    </div>
+                                </div>
+                                <div class="showcase-stats">
+                                    <div class="mini-stat">
+                                        <span class="mini-number" data-target="12">0</span>
+                                        <span>Industriekunden</span>
+                                    </div>
+                                    <div class="mini-stat">
+                                        <span class="mini-number" data-target="2">0</span>
+                                        <span>h Reaktionszeit</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="showcase-visual">
+                                <div class="visual-industry">
+                                    <i class="fas fa-industry"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-panel" id="smart">
+                        <div class="service-showcase">
+                            <div class="showcase-content">
+                                <h3>Smart Home & Zukunft</h3>
+                                <div class="service-list">
+                                    <div class="service-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>KNX/EIB Bussysteme</span>
+                                    </div>
+                                    <div class="service-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Photovoltaik & Speicher</span>
+                                    </div>
+                                    <div class="service-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>E-Ladestationen</span>
+                                    </div>
+                                    <div class="service-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>IoT & Vernetzung</span>
+                                    </div>
+                                </div>
+                                <div class="showcase-stats">
+                                    <div class="mini-stat">
+                                        <span class="mini-number" data-target="67">0</span>
+                                        <span>Smart Homes</span>
+                                    </div>
+                                    <div class="mini-stat">
+                                        <span class="mini-number" data-target="28">0</span>
+                                        <span>PV-Anlagen</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="showcase-visual">
+                                <div class="visual-smart">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Cards with Advanced Layout -->
+        <section id="team" class="team-modern">
+            <div class="team-intro">
+                <h2>Das Elektro Eber Team</h2>
+                <p>Seit 2023 - Drei Experten, eine Vision: Perfekte Elektroinstallationen für Ihre Projekte</p>
+            </div>
+            
+            <div class="team-cards">
+                <div class="team-card ceo-card">
+                    <div class="card-header">
+                        <div class="member-avatar">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="member-info">
+                            <h3>Dennis Eckert</h3>
+                            <span class="role">CEO & Geschäftsführer</span>
+                            <div class="experience-badge">
+                                <span class="exp-number" data-target="8">0</span>
+                                <span>Jahre Erfahrung</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Geschäftsführer und Projektleiter seit der Gründung 2023. Verantwortlich für Kundenbetreuung, Projektmanagement und strategische Unternehmensführung.</p>
+                        <div class="member-skills">
+                            <span class="skill">Projektleitung</span>
+                            <span class="skill">Kundenbetreuung</span>
+                            <span class="skill">Unternehmensführung</span>
+                        </div>
+                        <div class="member-stats">
+                            <div class="stat">
+                                <span class="stat-num" data-target="95">0</span>
+                                <span>Projekte geleitet</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card cto-card">
+                    <div class="card-header">
+                        <div class="member-avatar">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="member-info">
+                            <h3>Jupp Fritsch</h3>
+                            <span class="role">IT-Leiter & Smart-Home Experte</span>
+                            <div class="experience-badge">
+                                <span class="exp-number" data-target="6">0</span>
+                                <span>Jahre Erfahrung</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Verantwortlich für alle IT-Systeme und Smart-Home-Technologien. Spezialist für moderne Hausautomation, KNX-Systeme und digitale Lösungen.</p>
+                        <div class="member-skills">
+                            <span class="skill">Smart Home</span>
+                            <span class="skill">IT-Systeme</span>
+                            <span class="skill">KNX/EIB</span>
+                            <span class="skill">Hausautomation</span>
+                        </div>
+                        <div class="member-stats">
+                            <div class="stat">
+                                <span class="stat-num" data-target="67">0</span>
+                                <span>Smart Homes realisiert</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card installer-card">
+                    <div class="card-header">
+                        <div class="member-avatar">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="member-info">
+                            <h3>Cameron Grayling</h3>
+                            <span class="role">Elektroinstallateur & Berater</span>
+                            <div class="experience-badge">
+                                <span class="exp-number" data-target="4">0</span>
+                                <span>Jahre Erfahrung</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Unser Angestellter und Berater für alle Elektroinstallationen. Kompetente Beratung und professionelle Umsetzung von Kundenwünschen.</p>
+                        <div class="member-skills">
+                            <span class="skill">Kundenberatung</span>
+                            <span class="skill">Installation</span>
+                            <span class="skill">Verkabelung</span>
+                            <span class="skill">Wartung</span>
+                        </div>
+                        <div class="member-stats">
+                            <div class="stat">
+                                <span class="stat-num" data-target="156">0</span>
+                                <span>Beratungen durchgeführt</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Showcase -->
+        <section id="projects" class="projects-showcase">
+            <div class="projects-header">
+                <h2>Ausgewählte Projekte</h2>
+                <div class="project-filter">
+                    <button class="filter-btn active" data-filter="all">Alle</button>
+                    <button class="filter-btn" data-filter="residential">Wohnen</button>
+                    <button class="filter-btn" data-filter="commercial">Gewerbe</button>
+                    <button class="filter-btn" data-filter="smart">Smart Tech</button>
+                </div>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card" data-category="residential">
+                    <div class="project-image">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Einfamilienhaus Modernisierung</h3>
+                        <p>Komplette Elektro-Modernisierung inkl. Smart Home System</p>
+                        <div class="project-meta">
+                            <span class="project-duration">
+                                <i class="fas fa-clock"></i> 12 Tage
+                            </span>
+                            <span class="project-size">
+                                <i class="fas fa-expand"></i> 180m²
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="commercial">
+                    <div class="project-image">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Ladengeschäft Neubau</h3>
+                        <p>Komplette Elektroinstallation für modernen Einzelhandel</p>
+                        <div class="project-meta">
+                            <span class="project-duration">
+                                <i class="fas fa-clock"></i> 8 Tage
+                            </span>
+                            <span class="project-size">
+                                <i class="fas fa-expand"></i> 340m²
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="smart">
+                    <div class="project-image">
+                        <i class="fas fa-solar-panel"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Photovoltaik-Anlage</h3>
+                        <p>15kW PV-Anlage mit Batteriespeicher und KNX-Integration</p>
+                        <div class="project-meta">
+                            <span class="project-duration">
+                                <i class="fas fa-clock"></i> 3 Tage
+                            </span>
+                            <span class="project-size">
+                                <i class="fas fa-bolt"></i> 15kW
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="commercial">
+                    <div class="project-image">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Produktionshalle</h3>
+                        <p>Industrieinstallation mit SPS-Steuerung und Schaltschrankbau</p>
+                        <div class="project-meta">
+                            <span class="project-duration">
+                                <i class="fas fa-clock"></i> 21 Tage
+                            </span>
+                            <span class="project-size">
+                                <i class="fas fa-expand"></i> 1200m²
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section with Modern Form -->
+        <section id="contact" class="contact-modern">
+            <div class="contact-container">
+                <div class="contact-hero">
+                    <h2>Lassen Sie uns Ihr nächstes Projekt realisieren!</h2>
+                    <p>Von der ersten Idee bis zur finalen Umsetzung - wir sind Ihr zuverlässiger Partner für alle Elektroarbeiten.</p>
+                </div>
+                
+                <div class="contact-grid">
+                    <div class="contact-info-modern">
+                        <div class="info-header">
+                            <h3>Kontakt & Beratung</h3>
+                            <p>Erreichen Sie uns über verschiedene Kanäle</p>
+                        </div>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method primary-method">
+                                <div class="method-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="method-content">
+                                    <h4>Telefon</h4>
+                                    <p>+49 (0) 123 456 789</p>
+                                    <span class="method-note">Mo-Fr: 07:00-17:00</span>
+                                </div>
+                                <a href="tel:+49123456789" class="method-action">
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="method-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="method-content">
+                                    <h4>E-Mail</h4>
+                                    <p>info@elektro-eber.de</p>
+                                    <span class="method-note">Antwort binnen 4h</span>
+                                </div>
+                                <a href="mailto:info@elektro-eber.de" class="method-action">
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                            
+                            <div class="contact-method emergency-method">
+                                <div class="method-icon">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="method-content">
+                                    <h4>Notdienst 24/7</h4>
+                                    <p>+49 (0) 123 456 799</p>
+                                    <span class="method-note">Bei Stromausfall & Co.</span>
+                                </div>
+                                <a href="tel:+49123456799" class="method-action">
+                                    <i class="fas fa-phone-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="location-info">
+                            <div class="location-header">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h4>Unser Standort</h4>
+                                    <p>Musterstraße 123<br>12345 Musterstadt</p>
+                                </div>
+                            </div>
+                            <div class="location-stats">
+                                <div class="location-stat">
+                                    <span class="stat-num" data-target="50">0</span>
+                                    <span>km Umkreis</span>
+                                </div>
+                                <div class="location-stat">
+                                    <span class="stat-num" data-target="30">0</span>
+                                    <span>min Anfahrt</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Google Maps Integration -->
+                        <div class="location-map">
+                            <h4><i class="fas fa-map"></i> Unser Standort auf der Karte</h4>
+                            <div class="map-container">
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d281.2793677829727!2d10.037328644131614!3d47.87841622644254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sde!2sde!4v1762194273511!5m2!1sde!2sde" 
+                                    width="100%" 
+                                    height="300" 
+                                    style="border:0; border-radius: 16px;" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                            <p class="map-note">
+                                <i class="fas fa-info-circle"></i>
+                                Klicken Sie auf die Karte für eine größere Ansicht und Routenplanung
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-modern">
+                        <div class="form-header">
+                            <h3>Projekt-Anfrage</h3>
+                            <p>Schildern Sie uns Ihr Vorhaben</p>
+                        </div>
+                        
+                        <form class="modern-form" id="contactFormModern">
+                            <div class="form-row">
+                                <div class="input-group">
+                                    <label for="firstName">Vorname *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="input-group">
+                                    <label for="lastName">Nachname *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="email">E-Mail Adresse *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="phone">Telefonnummer</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="projectType">Art des Projekts *</label>
+                                <select id="projectType" name="projectType" required>
+                                    <option value="">Bitte auswählen</option>
+                                    <option value="residential">Wohngebäude</option>
+                                    <option value="commercial">Gewerbe/Büro</option>
+                                    <option value="industrial">Industrie</option>
+                                    <option value="smart">Smart Home</option>
+                                    <option value="solar">Photovoltaik</option>
+                                    <option value="other">Sonstiges</option>
+                                </select>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="budget">Ungefähr Budget</label>
+                                <select id="budget" name="budget">
+                                    <option value="">Optional</option>
+                                    <option value="unter-5k">Unter 5.000€</option>
+                                    <option value="5k-15k">5.000€ - 15.000€</option>
+                                    <option value="15k-50k">15.000€ - 50.000€</option>
+                                    <option value="ueber-50k">Über 50.000€</option>
+                                </select>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="message">Projektbeschreibung *</label>
+                                <textarea id="message" name="message" rows="4" required 
+                                    placeholder="Beschreiben Sie Ihr Projekt so detailliert wie möglich..."></textarea>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="submit-btn">
+                                    <span>Anfrage senden</span>
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                                <p class="form-note">
+                                    <i class="fas fa-shield-alt"></i>
+                                    Ihre Daten werden vertraulich behandelt
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modern Footer -->
+    <footer class="footer-modern">
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-bolt"></i>
+                        <span>Elektro Eber</span>
+                    </div>
+                    <p>Innovative Elektroinstallationen seit 2023. Ihr vertrauensvoller Partner für alle elektrischen Belange.</p>
+                    <div class="footer-stats">
+                        <div class="footer-stat">
+                            <span class="stat-num" data-target="247">0</span>
+                            <span>Projekte</span>
+                        </div>
+                        <div class="footer-stat">
+                            <span class="stat-num" data-target="189">0</span>
+                            <span>Kunden</span>
+                        </div>
+                        <div class="footer-stat">
+                            <span class="stat-num" data-target="2">0</span>
+                            <span>Jahre</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-column">
+                        <h4>Leistungen</h4>
+                        <a href="#services">Wohninstallationen</a>
+                        <a href="#services">Gewerbe & Industrie</a>
+                        <a href="#services">Smart Home</a>
+                        <a href="#services">Photovoltaik</a>
+                        <a href="#services">Wartung & Service</a>
+                    </div>
+                    
+                    <div class="link-column">
+                        <h4>Unternehmen</h4>
+                        <a href="#team">Unser Team</a>
+                        <a href="#projects">Referenzen</a>
+                        <a href="#contact">Karriere</a>
+                        <a href="#contact">Über uns</a>
+                    </div>
+                    
+                    <div class="link-column">
+                        <h4>Kontakt</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Musterstraße 123<br>12345 Musterstadt</p>
+                        <p><i class="fas fa-phone"></i> +49 (0) 123 456 789</p>
+                        <p><i class="fas fa-envelope"></i> info@elektro-eber.de</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 Elektro Eber GmbH - Gegründet 2023. Alle Rechte vorbehalten.</p>
+                    <div class="footer-legal">
+                        <a href="#">Impressum</a>
+                        <a href="#">Datenschutz</a>
+                        <a href="#">AGB</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Kontaktieren Sie uns</h2>
+                <p>Wir freuen uns auf Ihr Projekt!</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Adresse</h3>
+                            <p>Musterstraße 123<br>12345 Musterstadt</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Telefon</h3>
+                            <p>+49 (0) 123 456789</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>E-Mail</h3>
+                            <p>info@elektro-eber.de</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Öffnungszeiten</h3>
+                            <p>Mo-Fr: 07:00 - 17:00<br>Sa: 08:00 - 12:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-Mail *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefon</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Betreff *</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Nachricht *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Nachricht senden
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-bolt"></i>
+                        <span>Elektro Eber</span>
+                    </div>
+                    <p>Ihr innovativer Partner für moderne Elektroinstallationen.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p><i class="fas fa-phone"></i> +49 (0) 123 456789</p>
+                    <p><i class="fas fa-envelope"></i> info@elektro-eber.de</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Leistungen</h3>
+                    <p>Hausinstallationen</p>
+                    <p>Smart Home Systeme</p>
+                    <p>Photovoltaik</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Elektro Eber. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
