@@ -809,8 +809,372 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Theme Manager
     new ThemeManager();
     
+    // Initialize testimonials slider
+    setTimeout(() => {
+        new TestimonialSlider();
+    }, 500);
+    
+    // Initialize FAQ functionality
+    setTimeout(() => {
+        new FAQManager();
+    }, 600);
+    
+    // Initialize Live Chat
+    setTimeout(() => {
+        new LiveChat();
+    }, 700);
+    
     console.log('Elektro Eber Website geladen! 🔌⚡');
 });
+
+// Testimonials Slider Class
+class TestimonialSlider {
+    constructor() {
+        this.currentSlide = 0;
+        this.slides = document.querySelectorAll('.testimonial-card');
+        this.dots = document.querySelectorAll('.dot');
+        this.prevBtn = document.querySelector('.testimonial-prev');
+        this.nextBtn = document.querySelector('.testimonial-next');
+        
+        this.init();
+    }
+    
+    init() {
+        if (this.slides.length === 0) return;
+        
+        // Event listeners
+        if (this.prevBtn) this.prevBtn.addEventListener('click', () => this.prevSlide());
+        if (this.nextBtn) this.nextBtn.addEventListener('click', () => this.nextSlide());
+        
+        this.dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => this.goToSlide(index));
+        });
+        
+        // Auto-slide every 5 seconds
+        this.autoSlide = setInterval(() => this.nextSlide(), 5000);
+        
+        // Pause auto-slide on hover
+        const slider = document.querySelector('.testimonials-slider');
+        if (slider) {
+            slider.addEventListener('mouseenter', () => clearInterval(this.autoSlide));
+            slider.addEventListener('mouseleave', () => {
+                this.autoSlide = setInterval(() => this.nextSlide(), 5000);
+            });
+        }
+        
+        this.showSlide(0);
+    }
+    
+    showSlide(index) {
+        // Remove active class from all slides and dots
+        this.slides.forEach(slide => slide.classList.remove('active'));
+        this.dots.forEach(dot => dot.classList.remove('active'));
+        
+        // Add active class to current slide and dot
+        if (this.slides[index]) this.slides[index].classList.add('active');
+        if (this.dots[index]) this.dots[index].classList.add('active');
+        
+        this.currentSlide = index;
+    }
+    
+    nextSlide() {
+        const next = (this.currentSlide + 1) % this.slides.length;
+        this.showSlide(next);
+    }
+    
+    prevSlide() {
+        const prev = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+        this.showSlide(prev);
+    }
+    
+    goToSlide(index) {
+        this.showSlide(index);
+    }
+}
+
+// FAQ Manager Class
+class FAQManager {
+    constructor() {
+        this.categoryBtns = document.querySelectorAll('.faq-category-btn');
+        this.categories = document.querySelectorAll('.faq-category');
+        this.faqItems = document.querySelectorAll('.faq-item');
+        
+        this.init();
+    }
+    
+    init() {
+        // Category switching
+        this.categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => this.switchCategory(btn));
+        });
+        
+        // FAQ item toggle
+        this.faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => this.toggleFAQ(item));
+        });
+    }
+    
+    switchCategory(activeBtn) {
+        const category = activeBtn.dataset.category;
+        
+        // Update buttons
+        this.categoryBtns.forEach(btn => btn.classList.remove('active'));
+        activeBtn.classList.add('active');
+        
+        // Update categories
+        this.categories.forEach(cat => {
+            if (cat.dataset.category === category) {
+                cat.classList.add('active');
+            } else {
+                cat.classList.remove('active');
+            }
+        });
+        
+        // Close all open FAQs when switching categories
+        this.faqItems.forEach(item => item.classList.remove('active'));
+    }
+    
+    toggleFAQ(item) {
+        const isActive = item.classList.contains('active');
+        
+        // Close all other FAQs in the same category
+        const currentCategory = item.closest('.faq-category');
+        const itemsInCategory = currentCategory.querySelectorAll('.faq-item');
+        itemsInCategory.forEach(faqItem => faqItem.classList.remove('active'));
+        
+        // Toggle current FAQ
+        if (!isActive) {
+            item.classList.add('active');
+        }
+    }
+}
+
+// Live Chat Manager Class
+class LiveChat {
+    constructor() {
+        this.chatButton = document.getElementById('chat-button');
+        this.chatWindow = document.getElementById('chat-window');
+        this.chatInput = document.getElementById('chat-input');
+        this.sendButton = document.getElementById('send-message');
+        this.messagesContainer = document.getElementById('chat-messages');
+        this.minimizeBtn = document.getElementById('minimize-chat');
+        this.closeBtn = document.getElementById('close-chat');
+        this.notification = document.getElementById('chat-notification');
+        this.quickActionBtns = document.querySelectorAll('.quick-action-btn');
+        
+        this.isOpen = false;
+        this.isMinimized = false;
+        this.messageCount = 0;
+        
+        this.init();
+        this.setupAutoResponses();
+    }
+    
+    init() {
+        // Chat button toggle
+        this.chatButton.addEventListener('click', () => this.toggleChat());
+        
+        // Control buttons
+        this.minimizeBtn.addEventListener('click', () => this.minimizeChat());
+        this.closeBtn.addEventListener('click', () => this.closeChat());
+        
+        // Send message
+        this.sendButton.addEventListener('click', () => this.sendMessage());
+        this.chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') this.sendMessage();
+        });
+        
+        // Quick actions
+        this.quickActionBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const message = btn.dataset.message;
+                this.sendUserMessage(message);
+            });
+        });
+        
+        // Show initial notification after 3 seconds
+        setTimeout(() => {
+            if (!this.isOpen) {
+                this.showNotification();
+            }
+        }, 3000);
+    }
+    
+    toggleChat() {
+        if (this.isOpen) {
+            this.closeChat();
+        } else {
+            this.openChat();
+        }
+    }
+    
+    openChat() {
+        this.chatWindow.classList.add('open');
+        this.isOpen = true;
+        this.hideNotification();
+        this.chatInput.focus();
+    }
+    
+    closeChat() {
+        this.chatWindow.classList.remove('open');
+        this.isOpen = false;
+        this.isMinimized = false;
+    }
+    
+    minimizeChat() {
+        this.chatWindow.classList.remove('open');
+        this.isMinimized = true;
+        this.isOpen = false;
+    }
+    
+    showNotification() {
+        this.notification.style.display = 'flex';
+        this.notification.textContent = '1';
+    }
+    
+    hideNotification() {
+        this.notification.style.display = 'none';
+    }
+    
+    sendMessage() {
+        const message = this.chatInput.value.trim();
+        if (!message) return;
+        
+        this.sendUserMessage(message);
+        this.chatInput.value = '';
+    }
+    
+    sendUserMessage(message) {
+        this.addMessage(message, 'user');
+        
+        // Show typing indicator
+        setTimeout(() => {
+            this.showTypingIndicator();
+            
+            // Send auto response after delay
+            setTimeout(() => {
+                this.hideTypingIndicator();
+                this.sendAutoResponse(message);
+            }, 1500);
+        }, 500);
+    }
+    
+    addMessage(text, sender = 'agent') {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `chat-message ${sender}-message`;
+        
+        const avatarDiv = document.createElement('div');
+        avatarDiv.className = 'message-avatar';
+        avatarDiv.innerHTML = sender === 'user' ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
+        
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'message-content';
+        
+        const textP = document.createElement('p');
+        textP.textContent = text;
+        
+        const timeSpan = document.createElement('span');
+        timeSpan.className = 'message-time';
+        timeSpan.textContent = 'Jetzt';
+        
+        contentDiv.appendChild(textP);
+        contentDiv.appendChild(timeSpan);
+        
+        messageDiv.appendChild(avatarDiv);
+        messageDiv.appendChild(contentDiv);
+        
+        this.messagesContainer.appendChild(messageDiv);
+        this.scrollToBottom();
+    }
+    
+    showTypingIndicator() {
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'chat-message agent-message typing-indicator';
+        typingDiv.innerHTML = `
+            <div class="message-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="message-content">
+                <p class="typing-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </p>
+            </div>
+        `;
+        
+        this.messagesContainer.appendChild(typingDiv);
+        this.scrollToBottom();
+    }
+    
+    hideTypingIndicator() {
+        const typingIndicator = this.messagesContainer.querySelector('.typing-indicator');
+        if (typingIndicator) {
+            typingIndicator.remove();
+        }
+    }
+    
+    scrollToBottom() {
+        this.messagesContainer.scrollTop = this.messagesContainer.scrollHeight;
+    }
+    
+    setupAutoResponses() {
+        this.responses = {
+            'kostenvoranschlag': [
+                'Gerne erstelle ich Ihnen einen kostenlosen Kostenvoranschlag! 📋',
+                'Können Sie mir mehr Details zu Ihrem Projekt mitteilen?',
+                'Welche Art von Elektroarbeiten planen Sie?'
+            ],
+            'notfall': [
+                'Bei Notfällen sind wir 24/7 für Sie da! 🚨',
+                'Rufen Sie uns sofort unter +49 (0) 123 456 789 an.',
+                'Wir sind innerhalb von 30-60 Minuten vor Ort.'
+            ],
+            'termin': [
+                'Sehr gerne vereinbare ich einen Termin mit Ihnen! 📅',
+                'Wann würde Ihnen ein Termin am besten passen?',
+                'Sie können auch direkt über unser Kontaktformular einen Wunschtermin angeben.'
+            ],
+            'preis': [
+                'Die Kosten hängen vom Projektumfang ab. 💰',
+                'Nutzen Sie gerne unseren Kostenrechner für eine erste Einschätzung.',
+                'Für ein genaues Angebot komme ich gerne kostenlos zu Ihnen vor Ort.'
+            ],
+            'smart home': [
+                'Smart Home ist unser Spezialgebiet! 🏠✨',
+                'Wir installieren KNX-Systeme, WLAN-basierte Lösungen und mehr.',
+                'Welche Smart Home Funktionen interessieren Sie am meisten?'
+            ],
+            'default': [
+                'Vielen Dank für Ihre Nachricht! 🤖',
+                'Ich bin der Eber Bot und helfe Ihnen gerne weiter!',
+                'Sie können auch jederzeit unter +49 (0) 123 456 789 anrufen.',
+                'Besuchen Sie unser Kontaktformular für detaillierte Anfragen.'
+            ]
+        };
+    }
+    
+    sendAutoResponse(userMessage) {
+        const message = userMessage.toLowerCase();
+        let responseKey = 'default';
+        
+        if (message.includes('kostenvoranschlag') || message.includes('preis') || message.includes('kosten')) {
+            responseKey = message.includes('kostenvoranschlag') ? 'kostenvoranschlag' : 'preis';
+        } else if (message.includes('notfall') || message.includes('hilfe') || message.includes('problem')) {
+            responseKey = 'notfall';
+        } else if (message.includes('termin') || message.includes('beratung')) {
+            responseKey = 'termin';
+        } else if (message.includes('smart home') || message.includes('knx')) {
+            responseKey = 'smart home';
+        }
+        
+        const responses = this.responses[responseKey];
+        const response = responses[Math.floor(Math.random() * responses.length)];
+        
+        this.addMessage(response);
+    }
+}
 
 // Dark Mode Functionality
 class ThemeManager {
