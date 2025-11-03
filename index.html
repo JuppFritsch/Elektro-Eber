@@ -30,6 +30,12 @@
             <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Kontakt</a></li>
         </ul>
         <div class="sidebar-footer">
+            <div class="theme-toggle">
+                <button id="theme-toggle" class="theme-btn">
+                    <i class="fas fa-moon"></i>
+                    <span>Dark Mode</span>
+                </button>
+            </div>
             <div class="contact-quick">
                 <p><i class="fas fa-phone"></i> +49 123 456789</p>
                 <p><i class="fas fa-envelope"></i> info@elektro-eber.de</p>
@@ -45,6 +51,9 @@
                 <i class="fas fa-bars"></i>
             </button>
             <div class="nav-actions">
+                <button id="theme-toggle-header" class="theme-btn-header">
+                    <i class="fas fa-moon"></i>
+                </button>
                 <a href="#contact" class="btn-cta">Kostenloses Angebot</a>
                 <div class="emergency-call">
                     <i class="fas fa-phone-alt"></i>
@@ -69,10 +78,10 @@
                     mit modernster Technologie und jahrelanger Erfahrung.
                 </p>
                 <div class="hero-cta-group">
-                    <a href="#contact" class="btn-primary-large">
+                    <button id="openProjectModal" class="btn-primary-large">
                         <span>Projekt starten</span>
                         <i class="fas fa-arrow-right"></i>
-                    </a>
+                    </button>
                     <div class="hero-stats-mini">
                         <div class="stat-mini">
                             <span class="stat-number">150+</span>
@@ -779,16 +788,218 @@
                 <div class="footer-bottom-content">
                     <p>&copy; 2025 Elektro Eber GmbH - Gegründet 2023. Alle Rechte vorbehalten.</p>
                     <div class="footer-legal">
-                        <a href="#">Impressum</a>
-                        <a href="#">Datenschutz</a>
-                        <a href="#">AGB</a>
+                        <a href="impressum.html">Impressum</a>
+                        <a href="datenschutz.html">Datenschutz</a>
+                        <a href="agb.html">AGB</a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
-
+    <!-- Project Selection Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🏗️ Ihr Elektroprojekt planen</h2>
+                <span class="modal-close" id="closeModal">&times;</span>
+            </div>
+            
+            <div class="project-wizard">
+                <!-- Step 1: Project Type -->
+                <div class="wizard-step active" id="step-1">
+                    <div class="step-header">
+                        <div class="step-indicator">
+                            <span class="step-number">1</span>
+                            <span class="step-title">Projekttyp auswählen</span>
+                        </div>
+                        <div class="step-progress">
+                            <div class="progress-bar" style="width: 33.33%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-types">
+                        <div class="project-type-card" data-type="residential" data-base-price="2500">
+                            <div class="type-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <h3>Wohngebäude</h3>
+                            <p>Einfamilienhaus, Wohnung, Renovierung</p>
+                            <div class="price-range">ab 2.500€</div>
+                        </div>
+                        
+                        <div class="project-type-card" data-type="commercial" data-base-price="8500">
+                            <div class="type-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h3>Gewerbe</h3>
+                            <p>Büros, Läden, Restaurants, Praxen</p>
+                            <div class="price-range">ab 8.500€</div>
+                        </div>
+                        
+                        <div class="project-type-card" data-type="industrial" data-base-price="15000">
+                            <div class="type-icon">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <h3>Industrie</h3>
+                            <p>Produktionshallen, Maschinenschaltschränke</p>
+                            <div class="price-range">ab 15.000€</div>
+                        </div>
+                        
+                        <div class="project-type-card" data-type="smart" data-base-price="4500">
+                            <div class="type-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3>Smart Home</h3>
+                            <p>KNX, Hausautomation, IoT-Systeme</p>
+                            <div class="price-range">ab 4.500€</div>
+                        </div>
+                        
+                        <div class="project-type-card" data-type="solar" data-base-price="12000">
+                            <div class="type-icon">
+                                <i class="fas fa-solar-panel"></i>
+                            </div>
+                            <h3>Photovoltaik</h3>
+                            <p>Solaranlagen, Batteriespeicher, E-Mobilität</p>
+                            <div class="price-range">ab 12.000€</div>
+                        </div>
+                        
+                        <div class="project-type-card" data-type="emergency" data-base-price="150">
+                            <div class="type-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <h3>Notfall/Reparatur</h3>
+                            <p>Stromausfall, Störung, schnelle Hilfe</p>
+                            <div class="price-range">ab 150€</div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-navigation">
+                        <div></div> <!-- Platzhalter für Zurück-Button -->
+                        <button class="btn-primary" id="nextStep1" disabled>Weiter zu den Leistungen</button>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Services -->
+                <div class="wizard-step" id="step-2">
+                    <div class="step-header">
+                        <div class="step-indicator">
+                            <span class="step-number">2</span>
+                            <span class="step-title">Leistungen auswählen</span>
+                        </div>
+                        <div class="step-progress">
+                            <div class="progress-bar" style="width: 66.66%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="services-selection" id="servicesContainer">
+                        <!-- Wird dynamisch gefüllt -->
+                    </div>
+                    
+                    <div class="step-navigation">
+                        <button class="btn-secondary" id="prevStep">Zurück</button>
+                        <button class="btn-primary" id="nextStep2">Weiter zur Preisberechnung</button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Details & Estimate -->
+                <div class="wizard-step" id="step-3">
+                    <div class="step-header">
+                        <div class="step-indicator">
+                            <span class="step-number">3</span>
+                            <span class="step-title">Details & Preiseinschätzung</span>
+                        </div>
+                        <div class="step-progress">
+                            <div class="progress-bar" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-summary">
+                        <div class="summary-left">
+                            <h3>📋 Ihr Projekt im Überblick</h3>
+                            <div id="selectedProject" class="selected-project">
+                                <!-- Wird dynamisch gefüllt -->
+                            </div>
+                            
+                            <div class="project-details">
+                                <div class="detail-group">
+                                    <label for="projectSize">Projektgröße (m²)</label>
+                                    <input type="number" id="projectSize" placeholder="z.B. 120" min="1">
+                                </div>
+                                
+                                <div class="detail-group">
+                                    <label for="timeframe">Gewünschter Zeitrahmen</label>
+                                    <select id="timeframe">
+                                        <option value="">Bitte wählen</option>
+                                        <option value="asap" data-multiplier="1.3">So schnell wie möglich (+30%)</option>
+                                        <option value="1month" data-multiplier="1.1">Innerhalb 1 Monat (+10%)</option>
+                                        <option value="3months" data-multiplier="1.0">Innerhalb 3 Monate</option>
+                                        <option value="6months" data-multiplier="0.9">Innerhalb 6 Monate (-10%)</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="detail-group">
+                                    <label for="additional">Zusätzliche Wünsche</label>
+                                    <textarea id="additional" placeholder="Beschreiben Sie weitere Details zu Ihrem Projekt..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="summary-right">
+                            <div class="price-calculator">
+                                <h3>💰 Preiseinschätzung</h3>
+                                
+                                <div class="price-breakdown">
+                                    <div class="price-item">
+                                        <span>Grundpreis:</span>
+                                        <span id="basePrice">0€</span>
+                                    </div>
+                                    <div class="price-item">
+                                        <span>Zusatzleistungen:</span>
+                                        <span id="servicesPrice">0€</span>
+                                    </div>
+                                    <div class="price-item">
+                                        <span>Größenzuschlag:</span>
+                                        <span id="sizePrice">0€</span>
+                                    </div>
+                                    <div class="price-item">
+                                        <span>Zeitfaktor:</span>
+                                        <span id="timePrice">±0€</span>
+                                    </div>
+                                    <div class="price-total">
+                                        <span>Geschätzte Kosten:</span>
+                                        <span id="totalPrice">0€</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="price-note">
+                                    <i class="fas fa-info-circle"></i>
+                                    <p>Dies ist eine unverbindliche Schätzung. Der finale Preis wird nach einer kostenlosen Vor-Ort-Besichtigung erstellt.</p>
+                                </div>
+                                
+                                <div class="contact-options">
+                                    <button class="btn-primary-large" id="requestQuote">
+                                        <span>Angebot anfordern</span>
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                    
+                                    <button class="btn-secondary" id="callNow">
+                                        <i class="fas fa-phone"></i>
+                                        <span>Sofort anrufen</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-navigation">
+                        <button class="btn-secondary" id="prevStep2">Zurück</button>
+                        <button class="btn-primary" id="startOver">Neues Projekt</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
