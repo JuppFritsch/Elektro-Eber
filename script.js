@@ -607,19 +607,73 @@ document.addEventListener('DOMContentLoaded', () => {
 const tabButtons = document.querySelectorAll('.tab-btn');
 const tabPanels = document.querySelectorAll('.tab-panel');
 
+// Initialize tabs when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    // Ensure first tab is active
+    if (tabButtons.length > 0 && tabPanels.length > 0) {
+        tabButtons[0].classList.add('active');
+        tabPanels[0].classList.add('active');
+    }
+});
+
 tabButtons.forEach(button => {
     button.addEventListener('click', () => {
         const targetTab = button.getAttribute('data-tab');
         
         // Remove active from all buttons and panels
         tabButtons.forEach(btn => btn.classList.remove('active'));
-        tabPanels.forEach(panel => panel.classList.remove('active'));
+        tabPanels.forEach(panel => {
+            panel.classList.remove('active');
+            // Add fade out effect
+            panel.style.opacity = '0';
+        });
         
-        // Add active to clicked button and corresponding panel
+        // Add active to clicked button
         button.classList.add('active');
-        document.getElementById(targetTab)?.classList.add('active');
+        
+        // Add active to corresponding panel with delay for smooth transition
+        const targetPanel = document.getElementById(targetTab);
+        if (targetPanel) {
+            setTimeout(() => {
+                targetPanel.classList.add('active');
+                targetPanel.style.opacity = '1';
+                
+                // Animate numbers in mini-stats
+                const miniNumbers = targetPanel.querySelectorAll('.mini-number');
+                miniNumbers.forEach(number => {
+                    animateCounter(number);
+                });
+            }, 150);
+        }
     });
 });
+
+// Counter animation function
+function animateCounter(element) {
+    const target = parseInt(element.getAttribute('data-target'));
+    const duration = 1500; // 1.5 seconds
+    const start = 0;
+    const startTime = performance.now();
+    
+    function updateCounter(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function for smooth animation
+        const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(start + (target - start) * easeOutCubic);
+        
+        element.textContent = current;
+        
+        if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+        } else {
+            element.textContent = target;
+        }
+    }
+    
+    requestAnimationFrame(updateCounter);
+}
 
 // Project Filter
 const filterButtons = document.querySelectorAll('.filter-btn');

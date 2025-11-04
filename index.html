@@ -394,6 +394,7 @@
             <li><a href="#certifications" class="nav-link"><i class="fas fa-certificate"></i> Zertifikate</a></li>
             <li><a href="#faq" class="nav-link"><i class="fas fa-question-circle"></i> FAQ</a></li>
             <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Kontakt</a></li>
+            <li><a href="#" class="nav-link customer-login-btn" id="customerLoginBtnMobile"><i class="fas fa-user-circle"></i> Kundenbereich</a></li>
         </ul>
         <div class="sidebar-footer">
             <div class="theme-toggle">
@@ -1998,6 +1999,135 @@
         </div>
     </footer>
 
+    <!-- Customer Login Modal -->
+    <div id="customerLoginModal" class="customer-login-modal">
+        <div class="login-modal-content">
+            <div class="login-header">
+                <h3 id="loginModalTitle">Kundenbereich</h3>
+                <button class="login-close" id="loginCloseBtn" aria-label="Schließen">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <!-- Login Form -->
+            <form class="auth-form active" id="loginForm">
+                <div class="form-intro">
+                    <i class="fas fa-user-shield"></i>
+                    <p>Melden Sie sich an, um auf Ihr persönliches Kundendashboard zuzugreifen</p>
+                </div>
+                
+                <div id="loginMessage" class="auth-message" style="display: none;"></div>
+                
+                <div class="form-group">
+                    <label for="loginEmail">E-Mail-Adresse</label>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="loginEmail" name="email" placeholder="ihre@email.de" required autocomplete="email">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="loginPassword">Passwort</label>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="loginPassword" name="password" placeholder="Ihr Passwort" required autocomplete="current-password">
+                        <button type="button" class="password-toggle" id="toggleLoginPassword" aria-label="Passwort anzeigen/verbergen">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-options">
+                    <label class="checkbox-wrapper">
+                        <input type="checkbox" id="rememberMe" name="remember">
+                        <span>Angemeldet bleiben</span>
+                    </label>
+                    <button type="button" class="forgot-password-btn" id="forgotPasswordBtn">
+                        Passwort vergessen?
+                    </button>
+                </div>
+                
+                <button type="submit" class="btn-login" id="loginSubmitBtn">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Anmelden
+                </button>
+                
+                <!-- Demo Credentials -->
+                <div class="demo-credentials">
+                    <h5>Demo Zugangsdaten zum Testen:</h5>
+                    <div class="demo-accounts">
+                        <div class="demo-account">
+                            <strong>Max Mustermann:</strong><br>
+                            E-Mail: <code>max.mustermann@email.de</code><br>
+                            Passwort: <code>demo123</code>
+                        </div>
+                        <div class="demo-account">
+                            <strong>Anna Schmidt:</strong><br>
+                            E-Mail: <code>anna.schmidt@email.de</code><br>
+                            Passwort: <code>demo456</code>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            
+            <!-- Password Reset Form -->
+            <form class="auth-form" id="resetPasswordForm">
+                <div class="form-intro">
+                    <i class="fas fa-key"></i>
+                    <p>Geben Sie Ihre E-Mail-Adresse ein, um einen Passwort-Reset-Link zu erhalten</p>
+                </div>
+                
+                <div id="resetMessage" class="auth-message" style="display: none;"></div>
+                
+                <div class="form-group">
+                    <label for="resetEmail">E-Mail-Adresse</label>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="resetEmail" name="email" placeholder="ihre@email.de" required autocomplete="email">
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-reset" id="resetSubmitBtn">
+                    <i class="fas fa-paper-plane"></i>
+                    Reset-Link senden
+                </button>
+                
+                <button type="button" class="btn-back-to-login" id="backToLoginBtn">
+                    <i class="fas fa-arrow-left"></i>
+                    Zurück zur Anmeldung
+                </button>
+            </form>
+            
+            <!-- Success State -->
+            <div class="auth-success" id="resetSuccess">
+                <i class="fas fa-check-circle"></i>
+                <h4>Reset-Link gesendet!</h4>
+                <p>Überprüfen Sie Ihre E-Mails und folgen Sie den Anweisungen.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Session Timeout Warning -->
+    <div id="sessionTimeoutWarning" class="session-timeout-warning" style="display: none;">
+        <div class="timeout-warning-content">
+            <div class="warning-info">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                    <h4>Sitzung läuft ab</h4>
+                    <p>Sie werden in <span id="timeoutCountdown">5</span> Minuten automatisch abgemeldet.</p>
+                </div>
+            </div>
+            <div class="warning-actions">
+                <button class="btn-extend-session" id="extendSessionBtn">
+                    Sitzung verlängern
+                </button>
+                <button class="btn-logout-now" id="logoutNowBtn">
+                    Jetzt abmelden
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Live Chat Widget -->
     <div id="chat-widget" class="chat-widget">
         <div id="chat-button" class="chat-button">
@@ -2917,5 +3047,8 @@
     <script src="mobile-navigation.js"></script>
     <script src="advanced-swipe.js"></script>
     <script src="pwa-manager.js"></script>
+    <script src="customer-auth.js"></script>
+    <script src="customer-dashboard.js"></script>
+    <script src="project-tracking.js"></script>
 </body>
 </html>
