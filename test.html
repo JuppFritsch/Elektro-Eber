@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Elektro Eber</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 2rem; max-width: 800px; margin: 0 auto; }
+        .test-section { background: #f5f5f5; padding: 1rem; margin: 1rem 0; border-radius: 8px; }
+        button { background: #007bff; color: white; border: none; padding: 0.5rem 1rem; margin: 0.5rem; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .result { background: white; padding: 1rem; margin: 1rem 0; border-left: 4px solid #28a745; }
+        .error { border-left-color: #dc3545; }
+    </style>
+</head>
+<body>
+    <h1>🔧 Elektro Eber - System Test</h1>
+    
+    <div class="test-section">
+        <h3>1. LocalStorage Test</h3>
+        <button onclick="testLocalStorage()">LocalStorage testen</button>
+        <div id="localStorageResult"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>2. Termin hinzufügen (Test)</h3>
+        <button onclick="addTestAppointment()">Test-Termin erstellen</button>
+        <div id="appointmentResult"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>3. Projekt hinzufügen (Test)</h3>
+        <button onclick="addTestProject()">Test-Projekt erstellen</button>
+        <div id="projectResult"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>4. Alle Buchungen anzeigen</h3>
+        <button onclick="showAllBookings()">Alle Buchungen anzeigen</button>
+        <button onclick="clearAllBookings()">Alle löschen</button>
+        <div id="allBookingsResult"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>5. Admin Dashboard öffnen</h3>
+        <button onclick="openAdminDashboard()">Admin Dashboard öffnen</button>
+    </div>
+
+    <script>
+        function testLocalStorage() {
+            const resultDiv = document.getElementById('localStorageResult');
+            try {
+                // Test localStorage
+                localStorage.setItem('test', 'works');
+                const test = localStorage.getItem('test');
+                localStorage.removeItem('test');
+                
+                if (test === 'works') {
+                    resultDiv.innerHTML = '<div class="result">✅ LocalStorage funktioniert!</div>';
+                } else {
+                    resultDiv.innerHTML = '<div class="result error">❌ LocalStorage Problem</div>';
+                }
+            } catch (error) {
+                resultDiv.innerHTML = '<div class="result error">❌ LocalStorage Fehler: ' + error.message + '</div>';
+            }
+        }
+        
+        function addTestAppointment() {
+            const resultDiv = document.getElementById('appointmentResult');
+            try {
+                const testBooking = {
+                    id: 'EB-TEST-' + Date.now(),
+                    name: 'Max Mustermann',
+                    email: 'max@test.de',
+                    phone: '+49 751 12345',
+                    date: new Date().toISOString().split('T')[0],
+                    time: '14:00',
+                    service: {
+                        name: 'Smart Home Beratung',
+                        price: 'Kostenlose Erstberatung'
+                    },
+                    message: 'Test-Termin für System-Check',
+                    status: 'pending',
+                    timestamp: new Date().toLocaleString('de-DE'),
+                    type: 'appointment'
+                };
+                
+                const bookings = JSON.parse(localStorage.getItem('elektro-eber-bookings') || '[]');
+                bookings.push(testBooking);
+                localStorage.setItem('elektro-eber-bookings', JSON.stringify(bookings));
+                
+                resultDiv.innerHTML = '<div class="result">✅ Test-Termin erstellt: ' + testBooking.id + '</div>';
+            } catch (error) {
+                resultDiv.innerHTML = '<div class="result error">❌ Fehler: ' + error.message + '</div>';
+            }
+        }
+        
+        function addTestProject() {
+            const resultDiv = document.getElementById('projectResult');
+            try {
+                const testProject = {
+                    id: 'EB-PROJEKT-TEST-' + Date.now(),
+                    name: 'Maria Musterfrau',
+                    email: 'maria@test.de',
+                    phone: '+49 751 54321',
+                    date: new Date().toISOString().split('T')[0],
+                    time: '10:00',
+                    service: {
+                        name: 'Neubau Einfamilienhaus',
+                        price: 'Angebot: 8.500€'
+                    },
+                    message: 'PROJEKTANFRAGE:\n\nProjekttyp: Neubau Einfamilienhaus\nGeschätzter Preis: 8.500€\nAnzahl Services: 3\n\nTest-Projekt für System-Check',
+                    status: 'pending',
+                    timestamp: new Date().toLocaleString('de-DE'),
+                    type: 'project'
+                };
+                
+                const bookings = JSON.parse(localStorage.getItem('elektro-eber-bookings') || '[]');
+                bookings.push(testProject);
+                localStorage.setItem('elektro-eber-bookings', JSON.stringify(bookings));
+                
+                resultDiv.innerHTML = '<div class="result">✅ Test-Projekt erstellt: ' + testProject.id + '</div>';
+            } catch (error) {
+                resultDiv.innerHTML = '<div class="result error">❌ Fehler: ' + error.message + '</div>';
+            }
+        }
+        
+        function showAllBookings() {
+            const resultDiv = document.getElementById('allBookingsResult');
+            try {
+                const bookings = JSON.parse(localStorage.getItem('elektro-eber-bookings') || '[]');
+                
+                if (bookings.length === 0) {
+                    resultDiv.innerHTML = '<div class="result">📋 Keine Buchungen vorhanden</div>';
+                } else {
+                    let html = '<div class="result">📋 Gefundene Buchungen (' + bookings.length + '):<br><br>';
+                    bookings.forEach(booking => {
+                        html += `<strong>${booking.id}</strong> - ${booking.name} (${booking.type})<br>`;
+                        html += `Service: ${booking.service.name}<br>`;
+                        html += `Datum: ${booking.date} ${booking.time}<br><br>`;
+                    });
+                    html += '</div>';
+                    resultDiv.innerHTML = html;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = '<div class="result error">❌ Fehler: ' + error.message + '</div>';
+            }
+        }
+        
+        function clearAllBookings() {
+            if (confirm('Wirklich alle Buchungen löschen?')) {
+                localStorage.removeItem('elektro-eber-bookings');
+                document.getElementById('allBookingsResult').innerHTML = '<div class="result">🗑️ Alle Buchungen gelöscht</div>';
+            }
+        }
+        
+        function openAdminDashboard() {
+            window.open('admin-dashboard.html', '_blank');
+        }
+        
+        // Beim Laden testen
+        window.addEventListener('load', () => {
+            testLocalStorage();
+            console.log('🔧 Test-Seite geladen');
+        });
+    </script>
+</body>
+</html>

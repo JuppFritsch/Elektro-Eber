@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔧 Debug Tool - Elektro Eber</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .debug-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .debug-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .code-block {
+            background: #1a1a1a;
+            color: #00ff00;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        
+        .test-button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 0.5rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .test-button:hover {
+            background: var(--secondary);
+            transform: translateY(-1px);
+        }
+        
+        .status-ok {
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        .status-error {
+            color: #ef4444;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="debug-container">
+        <h1>🔧 Debug Tool - Terminbuchung System</h1>
+        <p>Hier können Sie testen was schief läuft und Probleme beheben.</p>
+        
+        <!-- Test 1: LocalStorage prüfen -->
+        <div class="debug-section">
+            <h2>📊 Test 1: Gespeicherte Buchungen prüfen</h2>
+            <button onclick="checkLocalStorage()" class="test-button">LocalStorage prüfen</button>
+            <div id="localStorageResult" class="code-block" style="display: none;">
+                <!-- Ergebnis wird hier angezeigt -->
+            </div>
+        </div>
+        
+        <!-- Test 2: Test-Buchung erstellen -->
+        <div class="debug-section">
+            <h2>🧪 Test 2: Test-Buchung erstellen</h2>
+            <button onclick="createTestBooking()" class="test-button">Test-Buchung erstellen</button>
+            <button onclick="clearAllBookings()" class="test-button" style="background: #ef4444;">Alle Buchungen löschen</button>
+            <div id="testBookingResult" class="code-block" style="display: none;">
+                <!-- Ergebnis wird hier angezeigt -->
+            </div>
+        </div>
+        
+        <!-- Test 3: Admin Dashboard Link -->
+        <div class="debug-section">
+            <h2>📋 Test 3: Admin Dashboard prüfen</h2>
+            <p>Öffnen Sie das Admin Dashboard in einem neuen Tab und prüfen Sie ob Buchungen angezeigt werden:</p>
+            <a href="admin-dashboard.html" target="_blank" class="test-button" style="text-decoration: none;">
+                📊 Admin Dashboard öffnen
+            </a>
+        </div>
+        
+        <!-- Test 4: Browser Kompatibilität -->
+        <div class="debug-section">
+            <h2>🌐 Test 4: Browser Kompatibilität</h2>
+            <button onclick="checkBrowserSupport()" class="test-button">Browser Features prüfen</button>
+            <div id="browserSupportResult" class="code-block" style="display: none;">
+                <!-- Ergebnis wird hier angezeigt -->
+            </div>
+        </div>
+        
+        <!-- Test 5: Schritt-für-Schritt Debug -->
+        <div class="debug-section">
+            <h2>🔍 Test 5: Live Debug - Buchungsvorgang testen</h2>
+            <p>Führen Sie eine komplette Test-Buchung durch:</p>
+            <ol style="line-height: 1.8;">
+                <li><a href="index.html" target="_blank">Website öffnen</a></li>
+                <li>Auf "Beratungstermin buchen" klicken</li>
+                <li>Service auswählen (z.B. "Allgemeine Beratung")</li>
+                <li>Datum und Zeit wählen</li>
+                <li>Testdaten eingeben:
+                    <div class="code-block">
+                        Vorname: Test<br>
+                        Nachname: Kunde<br>
+                        E-Mail: test@example.com<br>
+                        Telefon: 0123 456789
+                    </div>
+                </li>
+                <li>Auf "Termin verbindlich buchen" klicken</li>
+                <li>Zurück zu diesem Debug Tool und prüfen:</li>
+            </ol>
+            <button onclick="checkAfterBooking()" class="test-button">Nach Buchung prüfen</button>
+        </div>
+        
+        <!-- Ergebnis-Anzeige -->
+        <div class="debug-section">
+            <h2>📊 Live-Status</h2>
+            <div id="liveStatus">
+                <p>Klicken Sie auf die Tests oben um den Status zu prüfen...</p>
+            </div>
+        </div>
+        
+        <!-- Zurück -->
+        <div style="text-align: center; margin: 3rem 0;">
+            <a href="index.html" class="test-button" style="text-decoration: none;">
+                🏠 Zurück zur Website
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function checkLocalStorage() {
+            const resultDiv = document.getElementById('localStorageResult');
+            const bookings = localStorage.getItem('elektro-eber-bookings');
+            
+            resultDiv.style.display = 'block';
+            
+            if (!bookings) {
+                resultDiv.innerHTML = `
+                    <span class="status-error">❌ PROBLEM GEFUNDEN!</span><br>
+                    Keine Buchungen in LocalStorage gefunden.<br>
+                    <br>
+                    Mögliche Ursachen:<br>
+                    • Browser blockiert LocalStorage<br>
+                    • Private Browsing Modus<br>
+                    • Browser-Sicherheitseinstellungen<br>
+                    <br>
+                    LÖSUNG: Erstellen Sie eine Test-Buchung unten.
+                `;
+            } else {
+                const parsedBookings = JSON.parse(bookings);
+                resultDiv.innerHTML = `
+                    <span class="status-ok">✅ LocalStorage funktioniert!</span><br>
+                    Gefundene Buchungen: ${parsedBookings.length}<br>
+                    <br>
+                    Daten: ${JSON.stringify(parsedBookings, null, 2)}
+                `;
+            }
+            
+            updateLiveStatus();
+        }
+        
+        function createTestBooking() {
+            const testBooking = {
+                bookingId: 'DEBUG-' + Date.now(),
+                service: {
+                    title: 'Debug Test Beratung',
+                    duration: 30,
+                    price: 'Kostenlos'
+                },
+                date: '2025-01-15',
+                time: '14:00',
+                customer: {
+                    firstName: 'Debug',
+                    lastName: 'Test',
+                    email: 'debug@test.com',
+                    phone: '0123 456789',
+                    address: 'Teststraße 123',
+                    message: 'Debug Test-Buchung'
+                },
+                status: 'Neu',
+                timestamp: new Date().toISOString(),
+                source: 'debug-tool'
+            };
+            
+            // In LocalStorage speichern
+            const existingBookings = JSON.parse(localStorage.getItem('elektro-eber-bookings') || '[]');
+            existingBookings.push(testBooking);
+            localStorage.setItem('elektro-eber-bookings', JSON.stringify(existingBookings));
+            
+            const resultDiv = document.getElementById('testBookingResult');
+            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = `
+                <span class="status-ok">✅ Test-Buchung erstellt!</span><br>
+                Buchungs-ID: ${testBooking.bookingId}<br>
+                <br>
+                Jetzt prüfen Sie das Admin Dashboard:<br>
+                1. Öffnen Sie admin-dashboard.html<br>
+                2. Die Test-Buchung sollte dort erscheinen<br>
+                <br>
+                Gespeichert: ${JSON.stringify(testBooking, null, 2)}
+            `;
+            
+            updateLiveStatus();
+        }
+        
+        function clearAllBookings() {
+            localStorage.removeItem('elektro-eber-bookings');
+            
+            const resultDiv = document.getElementById('testBookingResult');
+            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = `
+                <span class="status-ok">✅ Alle Buchungen gelöscht!</span><br>
+                LocalStorage wurde geleert.<br>
+                Sie können jetzt frisch testen.
+            `;
+            
+            updateLiveStatus();
+        }
+        
+        function checkBrowserSupport() {
+            const resultDiv = document.getElementById('browserSupportResult');
+            resultDiv.style.display = 'block';
+            
+            const support = {
+                localStorage: typeof(Storage) !== "undefined",
+                fetch: typeof(fetch) !== "undefined",
+                json: typeof(JSON) !== "undefined",
+                es6: typeof(Array.from) !== "undefined"
+            };
+            
+            const allSupported = Object.values(support).every(s => s);
+            
+            resultDiv.innerHTML = `
+                <span class="${allSupported ? 'status-ok' : 'status-error'}">
+                    ${allSupported ? '✅' : '❌'} Browser Kompatibilität
+                </span><br>
+                <br>
+                LocalStorage: ${support.localStorage ? '✅' : '❌'}<br>
+                Fetch API: ${support.fetch ? '✅' : '❌'}<br>
+                JSON Support: ${support.json ? '✅' : '❌'}<br>
+                ES6 Support: ${support.es6 ? '✅' : '❌'}<br>
+                <br>
+                Browser: ${navigator.userAgent}<br>
+                ${allSupported ? 'Ihr Browser unterstützt alle Features!' : 'Ihr Browser hat Kompatibilitätsprobleme!'}
+            `;
+        }
+        
+        function checkAfterBooking() {
+            const bookings = JSON.parse(localStorage.getItem('elektro-eber-bookings') || '[]');
+            const resultDiv = document.getElementById('testBookingResult');
+            resultDiv.style.display = 'block';
+            
+            if (bookings.length === 0) {
+                resultDiv.innerHTML = `
+                    <span class="status-error">❌ PROBLEM!</span><br>
+                    Keine Buchung wurde gespeichert.<br>
+                    <br>
+                    DEBUGGING SCHRITTE:<br>
+                    1. Öffnen Sie die Browser-Entwicklertools (F12)<br>
+                    2. Gehen Sie zur Console<br>
+                    3. Führen Sie eine Buchung durch<br>
+                    4. Schauen Sie nach JavaScript-Fehlern<br>
+                    <br>
+                    MÖGLICHE URSACHEN:<br>
+                    • JavaScript-Fehler im Code<br>
+                    • LocalStorage blockiert<br>
+                    • Form-Validation schlägt fehl
+                `;
+            } else {
+                const latestBooking = bookings[bookings.length - 1];
+                resultDiv.innerHTML = `
+                    <span class="status-ok">✅ BUCHUNG GEFUNDEN!</span><br>
+                    Letzte Buchung: ${latestBooking.bookingId}<br>
+                    Zeit: ${new Date(latestBooking.timestamp).toLocaleString('de-DE')}<br>
+                    Kunde: ${latestBooking.customer.firstName} ${latestBooking.customer.lastName}<br>
+                    <br>
+                    Das System funktioniert korrekt!<br>
+                    Prüfen Sie jetzt das Admin Dashboard.
+                `;
+            }
+            
+            updateLiveStatus();
+        }
+        
+        function updateLiveStatus() {
+            const bookings = JSON.parse(localStorage.getItem('elektro-eber-bookings') || '[]');
+            const statusDiv = document.getElementById('liveStatus');
+            
+            statusDiv.innerHTML = `
+                <p><strong>📊 Aktueller Status:</strong></p>
+                <p>Buchungen in LocalStorage: <span class="${bookings.length > 0 ? 'status-ok' : 'status-error'}">${bookings.length}</span></p>
+                <p>Letzte Prüfung: ${new Date().toLocaleTimeString('de-DE')}</p>
+                ${bookings.length > 0 ? '<p class="status-ok">✅ System funktioniert!</p>' : '<p class="status-error">❌ Keine Buchungen gefunden</p>'}
+            `;
+        }
+        
+        // Beim Laden automatisch prüfen
+        document.addEventListener('DOMContentLoaded', updateLiveStatus);
+        
+        // Automatische Updates alle 5 Sekunden
+        setInterval(updateLiveStatus, 5000);
+    </script>
+</body>
+</html>

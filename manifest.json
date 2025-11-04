@@ -1,0 +1,152 @@
+{
+  "name": "Elektro Eber",
+  "short_name": "ElektroEber",
+  "description": "Elektro Eber - Professionelle Elektroinstallationen, Smart Home Lösungen und Industrieautomation. Ihr zuverlässiger Partner für alle elektrischen Arbeiten.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e1e1e",
+  "theme_color": "#f59e0b",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "de-DE",
+  "dir": "ltr",
+  "categories": [
+    "business",
+    "utilities",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Notfall-Hotline",
+      "short_name": "Notfall",
+      "description": "Direkter Zugang zur 24/7 Notfall-Hotline",
+      "url": "/?action=emergency",
+      "icons": [
+        {
+          "src": "icons/shortcut-emergency.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Kostenvoranschlag",
+      "short_name": "Angebot",
+      "description": "Schnell einen Kostenvoranschlag anfordern",
+      "url": "/?action=quote",
+      "icons": [
+        {
+          "src": "icons/shortcut-quote.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Live Chat",
+      "short_name": "Chat",
+      "description": "Direkt mit unserem Support-Team chatten",
+      "url": "/?action=chat",
+      "icons": [
+        {
+          "src": "icons/shortcut-chat.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Projekte",
+      "short_name": "Portfolio",
+      "description": "Unsere aktuellen Projekte und Referenzen",
+      "url": "/?action=projects",
+      "icons": [
+        {
+          "src": "icons/shortcut-projects.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/desktop-home.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Elektro Eber Startseite"
+    },
+    {
+      "src": "screenshots/mobile-home.png",
+      "sizes": "375x667",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile Ansicht der Startseite"
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "protocol_handlers": [
+    {
+      "protocol": "mailto",
+      "url": "/?action=contact&email=%s"
+    },
+    {
+      "protocol": "tel",
+      "url": "/?action=call&number=%s"
+    }
+  ],
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  }
+}

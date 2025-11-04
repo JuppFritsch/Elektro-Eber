@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+    
+    <!-- Main Pages -->
+    <url>
+        <loc>https://elektro-eber.de/</loc>
+        <lastmod>2024-11-04</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://elektro-eber.de/images/elektro-eber-logo.webp</image:loc>
+            <image:caption>Elektro Eber - Professionelle Elektroinstallationen</image:caption>
+            <image:title>Elektro Eber Logo</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://elektro-eber.de/images/hero-background.webp</image:loc>
+            <image:caption>Moderne Elektroinstallationen von Elektro Eber</image:caption>
+            <image:title>Elektroinstallation Hero Image</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://elektro-eber.de/images/team-photo.webp</image:loc>
+            <image:caption>Das professionelle Team von Elektro Eber</image:caption>
+            <image:title>Elektro Eber Team</image:title>
+        </image:image>
+    </url>
+    
+    <!-- Service Pages -->
+    <url>
+        <loc>https://elektro-eber.de/#services</loc>
+        <lastmod>2024-11-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <url>
+        <loc>https://elektro-eber.de/services/hausinstallation</loc>
+        <lastmod>2024-11-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://elektro-eber.de/images/hausinstallation-service.webp</image:loc>
+            <image:caption>Professionelle Hausinstallation von Elektro Eber</image:caption>
+            <image:title>Hausinstallation Service</image:title>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://elektro-eber.de/services/smart-home</loc>
+        <lastmod>2024-11-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://elektro-eber.de/images/smart-home-service.webp</image:loc>
+            <image:caption>Smart Home Installationen von Elektro Eber</image:caption>
+            <image:title>Smart Home Service</image:title>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://elektro-eber.de/services/gewerbliche-elektrik</loc>
+        <lastmod>2024-11-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://elektro-eber.de/images/gewerbliche-elektrik-service.webp</image:loc>
+            <image:caption>Gewerbliche Elektroinstallationen von Elektro Eber</image:caption>
+            <image:title>Gewerbliche Elektrik Service</image:title>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://elektro-eber.de/services/industrielle-elektrik</loc>
+        <lastmod>2024-11-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://elektro-eber.de/services/notdienst</loc>
+        <lastmod>2024-11-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://elektro-eber.de/images/notdienst-service.webp</image:loc>
+            <image:caption>24/7 Elektriker Notdienst von Elektro Eber</image:caption>
+            <image:title>Elektriker Notdienst</image:title>
+        </image:image>
+    </url>
+    
+    <!-- Team Pages -->
+    <url>
+        <loc>https://elektro-eber.de/#team</loc>
+        <lastmod>2024-11-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://elektro-eber.de/team/dennis-eckert</loc>
+        <lastmod>2024-11-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <image:image>
+            <image:loc>https://elektro-eber.de/images/team/dennis-eckert.webp</image:loc>
+            <image:caption>Dennis Eckert - Elektrikermeister bei Elektro Eber</image:caption>
+            <image:title>Dennis Eckert Portrait</image:title>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://elektro-eber.de/team/jupp-fritsch</loc>
+        <lastmod>2024-11-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <image:image>
+            <image:loc>https://elektro-eber.de/images/team/jupp-fritsch.webp</image:loc>
+            <image:caption>Jupp Fritsch - Elektrikermeister bei Elektro Eber</image:caption>
+            <image:title>Jupp Fritsch Portrait</image:title>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://elektro-eber.de/team/cameron-grayling</loc>
+        <lastmod>2024-11-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <image:image>
+            <image:loc>https://elektro-eber.de/images/team/cameron-grayling.webp</image:loc>
+            <image:caption>Cameron Grayling - Smart Home Spezialist bei Elektro Eber</image:caption>
+            <image:title>Cameron Grayling Portrait</image:title>
+        </image:image>
+    </url>
+    
+    <!-- Project Pages -->
+    <url>
+        <loc>https://elektro-eber.de/#projects</loc>
+        <lastmod>2024-11-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://elektro-eber.de/projects/wohnhaus-neubau</loc>
+        <lastmod>2024-11-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://elektro-eber.de/images/projects/wohnhaus-neubau.webp</image:loc>
+            <image:caption>Wohnhaus Neubau Elektroinstallation von Elektro Eber</image:caption>
+            <image:title>Wohnhaus Neubau Projekt</image:title>
+        </image:image>
+    </url>
+    
+    <url>
+        <loc>https://elektro-eber.de/projects/buerogebaeude-sanierung</loc>
+        <lastmod>2024-11-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://elektro-eber.de/images/projects/buerogebaeude-sanierung.webp</image:loc>
+            <image:caption>Bürogebäude Elektro-Sanierung von Elektro Eber</image:caption>
+            <image:title>Bürogebäude Sanierung Projekt</image:title>
+        </image:image>
+    </url>
+    
+    <!-- Information Pages -->
+    <url>
+        <loc>https://elektro-eber.de/#certifications</loc>
+        <lastmod>2024-11-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>https://elektro-eber.de/#faq</loc>
+        <lastmod>2024-11-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <url>
+        <loc>https://elektro-eber.de/#contact</loc>
+        <lastmod>2024-11-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Legal Pages -->
+    <url>
+        <loc>https://elektro-eber.de/impressum.html</loc>
+        <lastmod>2024-11-04</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    
+    <url>
+        <loc>https://elektro-eber.de/datenschutz.html</loc>
+        <lastmod>2024-11-04</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    
+    <url>
+        <loc>https://elektro-eber.de/agb.html</loc>
+        <lastmod>2024-11-04</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    
+    <!-- Blog/News Pages (if applicable) -->
+    <url>
+        <loc>https://elektro-eber.de/news/smart-home-trends-2024</loc>
+        <lastmod>2024-11-04</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.5</priority>
+        <news:news>
+            <news:publication>
+                <news:name>Elektro Eber News</news:name>
+                <news:language>de</news:language>
+            </news:publication>
+            <news:publication_date>2024-11-04</news:publication_date>
+            <news:title>Smart Home Trends 2024 - Was kommt auf uns zu?</news:title>
+        </news:news>
+    </url>
+    
+    <!-- Service Area Pages -->
+    <url>
+        <loc>https://elektro-eber.de/service-gebiete</loc>
+        <lastmod>2024-11-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+</urlset>

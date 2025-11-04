@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 Admin Dashboard - Elektro Eber Terminbuchungen</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .admin-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .booking-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        
+        .booking-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+        }
+        
+        .booking-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+            border-color: var(--primary);
+        }
+        
+        .booking-card:hover::before {
+            width: 8px;
+        }
+        
+        .booking-card.border-primary {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(0, 123, 255, 0.02) 100%);
+        }
+        
+        .booking-card.border-primary::before {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            width: 6px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .booking-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .booking-status {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .status-new { background: #fbbf24; color: #92400e; }
+        .status-confirmed { background: #10b981; color: white; }
+        .status-cancelled { background: #ef4444; color: white; }
+        
+        .booking-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .detail-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .detail-group i {
+            color: var(--primary);
+            width: 20px;
+        }
+        
+        .booking-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .btn-small {
+            padding: 0.75rem 1.25rem;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .btn-small:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        .btn-small i {
+            font-size: 0.85rem;
+        }
+        
+        .btn-confirm {
+            background: #10b981;
+            color: white;
+        }
+        
+        .btn-cancel {
+            background: #ef4444;
+            color: white;
+        }
+        
+        .btn-contact {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .filters {
+            background: linear-gradient(135deg, var(--bg-secondary), var(--card-bg));
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
+        }
+        
+        .filter-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .filter-label {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .filter-label i {
+            color: var(--primary);
+            font-size: 1rem;
+        }
+        
+        .filter-control {
+            padding: 0.875rem 1.125rem;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            background: var(--card-bg);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            font-family: inherit;
+        }
+        
+        .filter-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .filter-control:hover {
+            border-color: var(--primary);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .filter-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .export-section {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        /* Animationen */
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideOutRight {
+            from {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .booking-card {
+            animation: fadeInUp 0.3s ease;
+        }
+        
+        /* Responsives Design */
+        @media (max-width: 768px) {
+            .filter-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .filter-actions {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .booking-card {
+                padding: 1.5rem;
+            }
+            
+            .booking-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="admin-header">
+            <h1>📊 Elektro Eber Admin Dashboard</h1>
+            <p>Terminbuchungen verwalten und überwachen</p>
+            <div style="margin-top: 1rem;">
+                <span id="lastUpdate">Letztes Update: Nie</span>
+                <button onclick="refreshBookings()" class="btn-secondary" style="margin-left: 1rem;">
+                    <i class="fas fa-sync"></i> Aktualisieren
+                </button>
+            </div>
+        </div>
+        
+        <!-- Statistiken -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="totalBookings">0</div>
+                <div>Gesamte Buchungen</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="todayBookings">0</div>
+                <div>Heute gebucht</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="upcomingBookings">0</div>
+                <div>Kommende Termine</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="revenue">0€</div>
+                <div>Geschätzter Umsatz</div>
+            </div>
+        </div>
+        
+        <!-- Filter und Export -->
+        <div class="export-section">
+            <h3>📤 Export & Benachrichtigungen</h3>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+                <button onclick="exportToCSV()" class="btn-primary">
+                    <i class="fas fa-file-csv"></i> Als CSV exportieren
+                </button>
+                <button onclick="exportToPDF()" class="btn-primary">
+                    <i class="fas fa-file-pdf"></i> Als PDF exportieren
+                </button>
+                <button onclick="sendEmailSummary()" class="btn-primary">
+                    <i class="fas fa-envelope"></i> E-Mail Zusammenfassung
+                </button>
+                <button onclick="setupNotifications()" class="btn-secondary">
+                    <i class="fas fa-bell"></i> Push-Benachrichtigungen
+                </button>
+                
+                <a href="google-sheets-setup.html" class="btn-primary" style="text-decoration: none; margin-left: 1rem;">
+                    <i class="fab fa-google"></i> Google Sheets Setup
+                </a>
+                
+                <a href="excel-manager.html" class="btn-secondary" style="text-decoration: none; margin-left: 1rem;">
+                    <i class="fas fa-file-excel"></i> Excel Manager
+                </a>
+            </div>
+        </div>
+        
+        <!-- Filter -->
+        <div class="filters">
+            <strong>Filter:</strong>
+            <select id="serviceFilter" onchange="filterBookings()">
+                <option value="">Alle Services</option>
+                <option value="general">Allgemeine Beratung</option>
+                <option value="planning">Projektplanung</option>
+                <option value="smart-home">Smart Home</option>
+                <option value="emergency">Vor-Ort Besichtigung</option>
+            </select>
+            
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label class="filter-label">
+                        <i class="fas fa-cogs"></i>
+                        Service Typ
+                    </label>
+                    <select id="serviceFilter" onchange="filterBookings()" class="filter-control">
+                        <option value="">🔧 Alle Services</option>
+                        <option value="general">💬 Allgemeine Beratung</option>
+                        <option value="planning">📋 Projektplanung</option>
+                        <option value="smart-home">🏠 Smart Home Beratung</option>
+                        <option value="emergency">🚨 Vor-Ort Besichtigung</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">
+                        <i class="fas fa-traffic-light"></i>
+                        Status
+                    </label>
+                    <select id="statusFilter" onchange="filterBookings()" class="filter-control">
+                        <option value="">📊 Alle Status</option>
+                        <option value="new">🆕 Neu</option>
+                        <option value="confirmed">✅ Bestätigt</option>
+                        <option value="completed">🎉 Abgeschlossen</option>
+                        <option value="cancelled">❌ Storniert</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">
+                        <i class="fas fa-calendar-alt"></i>
+                        Datum
+                    </label>
+                    <input type="date" id="dateFilter" onchange="filterBookings()" class="filter-control" title="Nach Datum filtern">
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">
+                        <i class="fas fa-search"></i>
+                        Suche
+                    </label>
+                    <input type="text" id="searchFilter" oninput="filterBookings()" class="filter-control" placeholder="Name, E-Mail oder Buchungs-ID...">
+                </div>
+            </div>
+            
+            <div class="filter-actions">
+                <button onclick="clearFilters()" class="btn-secondary">
+                    <i class="fas fa-broom"></i> Filter zurücksetzen
+                </button>
+                
+                <button onclick="exportFiltered()" class="btn-primary">
+                    <i class="fas fa-download"></i> Gefilterte Daten exportieren
+                </button>
+                
+                <button onclick="saveFilterPreset()" class="btn-secondary" title="Filter als Vorlage speichern">
+                    <i class="fas fa-bookmark"></i> Als Vorlage speichern
+                </button>
+            </div>
+        </div>
+        
+        <!-- Buchungen Liste -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h2>📅 Aktuelle Buchungen <span id="filterCount" style="color: var(--text-secondary); font-size: 0.9rem; font-weight: normal;"></span></h2>
+            <div>
+                <button onclick="markAllAsRead()" class="btn-secondary btn-small">
+                    Alle als gelesen markieren
+                </button>
+                <button onclick="addTestBooking()" class="btn-secondary btn-small" style="margin-left: 0.5rem;">
+                    <i class="fas fa-plus"></i> Test-Termin
+                </button>
+                <button onclick="deleteAllBookings()" class="btn-cancel btn-small" style="margin-left: 0.5rem;">
+                    <i class="fas fa-trash"></i> Alle löschen
+                </button>
+            </div>
+        </div>
+        
+        <div id="bookingsContainer">
+            <div style="text-align: center; padding: 3rem; color: var(--text-sub);">
+                <i class="fas fa-calendar" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
+                <p>Keine Buchungen vorhanden</p>
+                <p><small>Buchungen erscheinen hier automatisch, wenn Kunden Termine buchen</small></p>
+            </div>
+        </div>
+        
+        <!-- Live Updates -->
+        <div style="position: fixed; bottom: 2rem; right: 2rem; z-index: 1000;">
+            <div id="liveStatus" style="background: #10b981; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">
+                <i class="fas fa-circle" style="animation: pulse 2s infinite;"></i> Live Updates aktiv
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let allBookings = [];
+        let filteredBookings = [];
+        
+        // Beim Laden der Seite
+        document.addEventListener('DOMContentLoaded', function() {
+            refreshBookings();
+            setupLiveUpdates();
+            console.log('📊 Admin Dashboard geladen');
+        });
+        
+        function refreshBookings() {
+            allBookings = JSON.parse(localStorage.getItem('elektro-eber-bookings') || '[]');
+            filteredBookings = [...allBookings];
+            
+            updateStatistics();
+            displayBookings();
+            
+            document.getElementById('lastUpdate').textContent = 
+                'Letztes Update: ' + new Date().toLocaleTimeString('de-DE');
+            
+            // Benachrichtigung bei neuen Terminen
+            checkForNewBookings();
+            
+            console.log(`📊 ${allBookings.length} Buchungen geladen`);
+        }
+        
+        function checkForNewBookings() {
+            const lastCheck = localStorage.getItem('admin-last-check');
+            const now = Date.now();
+            
+            if (lastCheck) {
+                const newBookings = allBookings.filter(b => 
+                    new Date(b.timestamp).getTime() > parseInt(lastCheck)
+                );
+                
+                if (newBookings.length > 0) {
+                    showNotification(`${newBookings.length} neue Terminanfrage(n)!`, 'success');
+                }
+            }
+            
+            localStorage.setItem('admin-last-check', now.toString());
+        }
+        
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#3b82f6'};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 10px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+                z-index: 10000;
+                font-weight: 600;
+                animation: slideIn 0.3s ease;
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            }, 3000);
+        }
+        
+        function updateStatistics() {
+            const total = allBookings.length;
+            const today = new Date().toISOString().split('T')[0];
+            const todayCount = allBookings.filter(b => b.date === today).length;
+            
+            const upcoming = allBookings.filter(b => {
+                const bookingDate = new Date(b.date);
+                const now = new Date();
+                return bookingDate >= now;
+            }).length;
+            
+            const revenue = allBookings.reduce((sum, booking) => {
+                const price = booking.service.price;
+                if (price.includes('€')) {
+                    const amount = parseInt(price.match(/\d+/)[0]);
+                    return sum + amount;
+                }
+                return sum;
+            }, 0);
+            
+            document.getElementById('totalBookings').textContent = total;
+            document.getElementById('todayBookings').textContent = todayCount;
+            document.getElementById('upcomingBookings').textContent = upcoming;
+            document.getElementById('revenue').textContent = revenue + '€';
+        }
+        
+        function displayBookings() {
+            const container = document.getElementById('bookingsContainer');
+            
+            if (filteredBookings.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 3rem; color: var(--text-sub);">
+                        <i class="fas fa-calendar" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;"></i>
+                        <p>Keine Buchungen gefunden</p>
+                    </div>`;
+                return;
+            }
+            
+            container.innerHTML = filteredBookings.sort((a, b) => 
+                new Date(b.timestamp) - new Date(a.timestamp)
+            ).map(booking => createBookingCard(booking)).join('');
+        }
+        
+        function createBookingCard(booking) {
+            // 🔧 KOMPATIBILITÄT: Beide Datenstrukturen unterstützen
+            const status = booking.status || 'pending';
+            const isNew = !booking.read;
+            const bookingDate = new Date(booking.date);
+            const isUpcoming = bookingDate >= new Date();
+            
+            // Service-Daten normalisieren (verschiedene Strukturen)
+            const serviceTitle = booking.service?.name || 
+                               booking.service?.title || 
+                               booking.service?.type || 
+                               'Unbekannter Service';
+            
+            const serviceDuration = booking.service?.duration || 30;
+            const servicePrice = booking.service?.price || 'Auf Anfrage';
+            
+            // Kunden-Daten sicher extrahieren - neue Struktur berücksichtigen
+            const customerName = booking.name || 
+                               `${booking.customer?.firstName || 'Unbekannt'} ${booking.customer?.lastName || 'Kunde'}`;
+            const customerEmail = booking.email || booking.customer?.email || 'Keine E-Mail';
+            const customerPhone = booking.phone || booking.customer?.phone || 'Keine Telefonnummer';
+            
+            return `
+                <div class="booking-card ${isNew ? 'border-primary' : ''}" data-booking-id="${booking.id || booking.bookingId}">
+                    <div class="booking-header">
+                        <div>
+                            <h3 style="margin: 0; color: var(--text-main);">
+                                ${isNew ? '🔥 ' : ''}${customerName}
+                            </h3>
+                            <small style="color: var(--text-sub);">${booking.id || booking.bookingId || 'Keine ID'}</small>
+                        </div>
+                        <span class="booking-status status-${status}">
+                            ${status === 'new' || status === 'Neu' ? '🆕 Neu' : 
+                              status === 'pending' ? '⏳ Ausstehend' :
+                              status === 'confirmed' ? '✅ Bestätigt' : 
+                              status === 'completed' ? '🎉 Abgeschlossen' : 
+                              '❌ Storniert'}
+                        </span>
+                    </div>
+                    
+                    <div class="booking-details">
+                        <div class="detail-group">
+                            <i class="fas fa-cog"></i>
+                            <span><strong>${serviceTitle}</strong><br>
+                            <small>${serviceDuration}min • ${servicePrice}</small></span>
+                        </div>
+                        
+                        <div class="detail-group">
+                            <i class="fas fa-calendar"></i>
+                            <span><strong>${bookingDate.toLocaleDateString('de-DE')}</strong><br>
+                            <small>${booking.time || 'Keine Zeit'} Uhr ${isUpcoming ? '(Kommend)' : '(Vergangen)'}</small></span>
+                        </div>
+                        
+                        <div class="detail-group">
+                            <i class="fas fa-envelope"></i>
+                            <span><strong>${customerEmail}</strong><br>
+                            <small>${customerPhone}</small></span>
+                        </div>
+                        
+                        <div class="detail-group">
+                            <i class="fas fa-clock"></i>
+                            <span><strong>Gebucht am:</strong><br>
+                            <small>${booking.timestamp ? new Date(booking.timestamp).toLocaleString('de-DE') : 'Unbekannt'}</small></span>
+                        </div>
+                    </div>
+                    
+                    ${booking.message || booking.customer?.message ? `
+                        <div style="margin-top: 1rem; padding: 1rem; background: var(--bg-secondary); border-radius: 8px;">
+                            <strong>💬 Nachricht:</strong> ${booking.message || booking.customer.message}
+                        </div>
+                    ` : ''}
+                    
+                    ${booking.type ? `
+                        <div style="margin-top: 0.5rem; color: var(--text-sub); font-size: 0.8rem;">
+                            <i class="fas fa-info-circle"></i> Typ: ${booking.type === 'appointment' ? '📅 Termin' : '🏗️ Projekt'} ${booking.source ? '• Quelle: ' + booking.source : ''}
+                        </div>
+                    ` : ''}
+                    
+                    <div class="booking-actions">
+                        <button onclick="confirmBooking('${booking.id || booking.bookingId}')" class="btn-small btn-confirm">
+                            <i class="fas fa-check"></i> Bestätigen
+                        </button>
+                        <button onclick="cancelBooking('${booking.id || booking.bookingId}')" class="btn-small btn-cancel">
+                            <i class="fas fa-times"></i> Stornieren
+                        </button>
+                        <button onclick="contactCustomer('${customerEmail}', '${customerPhone}')" class="btn-small btn-contact">
+                            <i class="fas fa-phone"></i> Kontaktieren
+                        </button>
+                        <button onclick="editBooking('${booking.id || booking.bookingId}')" class="btn-small" style="background: var(--secondary); color: white;">
+                            <i class="fas fa-edit"></i> Bearbeiten
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function confirmBooking(bookingId) {
+            updateBookingStatus(bookingId, 'confirmed');
+            showNotification('✅ Termin bestätigt! Status wurde aktualisiert.', 'success');
+        }
+        
+        function cancelBooking(bookingId) {
+            if (confirm('❌ Termin wirklich stornieren?')) {
+                updateBookingStatus(bookingId, 'cancelled');
+                showNotification('❌ Termin storniert! Status wurde aktualisiert.', 'error');
+            }
+        }
+        
+        function updateBookingStatus(bookingId, status) {
+            let updated = false;
+            allBookings = allBookings.map(booking => {
+                // Unterstützt beide ID-Formate
+                if (booking.id === bookingId || booking.bookingId === bookingId) {
+                    booking.status = status;
+                    booking.read = true;
+                    updated = true;
+                }
+                return booking;
+            });
+            
+            if (updated) {
+                localStorage.setItem('elektro-eber-bookings', JSON.stringify(allBookings));
+                refreshBookings();
+            } else {
+                showNotification('❌ Buchung nicht gefunden: ' + bookingId, 'error');
+            }
+        }
+        
+        function contactCustomer(email, phone) {
+            // Menü mit mehreren Optionen anzeigen
+            const options = [
+                '📧 E-Mail schreiben',
+                '📞 Anrufen', 
+                '✅ Termin bestätigen (E-Mail)',
+                '❌ Absagen'
+            ];
+            
+            const choice = prompt(`Kunde kontaktieren - Wählen Sie eine Option:\n\n1 = ${options[0]}\n2 = ${options[1]}\n3 = ${options[2]}\n4 = ${options[3]}\n\nGeben Sie eine Zahl ein (1-4):`);
+            
+            switch(choice) {
+                case '1':
+                    window.open(`mailto:${email}?subject=${encodeURIComponent('Elektro Eber - Ihre Anfrage')}&body=${encodeURIComponent('Sehr geehrte Damen und Herren,\n\nvielen Dank für Ihre Anfrage. Gerne möchten wir...')}`);
+                    break;
+                case '2':
+                    window.open(`tel:${phone}`);
+                    break;
+                case '3':
+                    window.open(`mailto:${email}?subject=${encodeURIComponent('✅ Terminbestätigung - Elektro Eber')}&body=${encodeURIComponent('Sehr geehrte Damen und Herren,\n\nhiermit bestätigen wir Ihren Termin...')}`);
+                    break;
+                case '4':
+                    window.open(`mailto:${email}?subject=${encodeURIComponent('Terminabsage - Elektro Eber')}&body=${encodeURIComponent('Sehr geehrte Damen und Herren,\n\nleider müssen wir Ihren Termin absagen...')}`);
+                    break;
+                default:
+                    showNotification('Aktion abgebrochen', 'info');
+            }
+        }
+        
+        function editBooking(bookingId) {
+            const booking = allBookings.find(b => b.id === bookingId || b.bookingId === bookingId);
+            if (!booking) {
+                showNotification('❌ Buchung nicht gefunden', 'error');
+                return;
+            }
+            
+            const newStatus = prompt(`Buchung bearbeiten: ${booking.name}\n\nNeuer Status:\n1 = pending\n2 = confirmed\n3 = completed\n4 = cancelled\n\nGeben Sie eine Zahl ein:`);
+            
+            const statusMap = {
+                '1': 'pending',
+                '2': 'confirmed', 
+                '3': 'completed',
+                '4': 'cancelled'
+            };
+            
+            if (statusMap[newStatus]) {
+                updateBookingStatus(bookingId, statusMap[newStatus]);
+                showNotification(`✅ Status geändert zu: ${statusMap[newStatus]}`, 'success');
+            }
+        }
+        
+        function exportToCSV() {
+            const csv = [
+                ['Buchungs-ID', 'Name', 'E-Mail', 'Telefon', 'Service', 'Datum', 'Zeit', 'Status', 'Typ', 'Gebucht am'].join(','),
+                ...allBookings.map(b => [
+                    b.id || b.bookingId || 'N/A',
+                    `"${b.name || (b.customer ? `${b.customer.firstName} ${b.customer.lastName}` : 'Unbekannt')}"`,
+                    b.email || b.customer?.email || 'N/A',
+                    b.phone || b.customer?.phone || 'N/A',
+                    `"${b.service?.name || b.service?.title || 'N/A'}"`,
+                    b.date || 'N/A',
+                    b.time || 'N/A',
+                    b.status || 'pending',
+                    b.type || 'unknown',
+                    b.timestamp ? new Date(b.timestamp).toLocaleString('de-DE') : 'N/A'
+                ].join(','))
+            ].join('\n');
+            
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `elektro-eber-buchungen-${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
+            
+            console.log('📊 CSV Export erstellt');
+        }
+        
+        function sendEmailSummary() {
+            const subject = encodeURIComponent('📊 Tägliche Buchungsübersicht - Elektro Eber');
+            const body = encodeURIComponent(`
+TÄGLICHE BUCHUNGSÜBERSICHT
+==========================
+
+📊 Statistiken:
+• Gesamte Buchungen: ${allBookings.length}
+• Neue heute: ${allBookings.filter(b => b.date === new Date().toISOString().split('T')[0]).length}
+• Kommende Termine: ${allBookings.filter(b => new Date(b.date) >= new Date()).length}
+
+📅 Nächste Termine:
+${allBookings
+    .filter(b => new Date(b.date) >= new Date())
+    .slice(0, 5)
+    .map(b => `• ${b.date} ${b.time} - ${b.customer.firstName} ${b.customer.lastName} (${b.service.title})`)
+    .join('\n')}
+
+Vollständige Liste im Admin Dashboard einsehen.
+            `);
+            
+            window.location.href = `mailto:dennis@elektro-eber.de?subject=${subject}&body=${body}`;
+        }
+        
+        function setupLiveUpdates() {
+            // Überprüfe alle 30 Sekunden auf neue Buchungen
+            setInterval(() => {
+                const currentCount = allBookings.length;
+                const newBookings = JSON.parse(localStorage.getItem('elektro-eber-bookings') || '[]');
+                
+                if (newBookings.length > currentCount) {
+                    // Neue Buchung erkannt!
+                    showNewBookingAlert(newBookings.length - currentCount);
+                    refreshBookings();
+                }
+            }, 30000);
+        }
+        
+        function showNewBookingAlert(count) {
+            const alert = document.createElement('div');
+            alert.style.cssText = `
+                position: fixed; top: 2rem; right: 2rem; z-index: 10000;
+                background: #10b981; color: white; padding: 1rem 2rem;
+                border-radius: 10px; box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+                animation: slideInRight 0.5s ease;
+            `;
+            alert.innerHTML = `
+                <strong>🔔 ${count} neue Buchung${count > 1 ? 'en' : ''}!</strong><br>
+                <small>Dashboard wurde aktualisiert</small>
+            `;
+            
+            document.body.appendChild(alert);
+            
+            // Sound abspielen (optional)
+            try {
+                new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvWIeBDWM0+3A').play();
+            } catch(e) {}
+            
+            setTimeout(() => alert.remove(), 5000);
+        }
+        
+        function filterBookings() {
+            const serviceFilter = document.getElementById('serviceFilter').value;
+            const statusFilter = document.getElementById('statusFilter').value;
+            const dateFilter = document.getElementById('dateFilter').value;
+            const searchFilter = document.getElementById('searchFilter').value.toLowerCase();
+            
+            filteredBookings = allBookings.filter(booking => {
+                const matchesService = !serviceFilter || booking.service.type === serviceFilter;
+                const matchesStatus = !statusFilter || (booking.status || 'new') === statusFilter;
+                const matchesDate = !dateFilter || booking.date === dateFilter;
+                const matchesSearch = !searchFilter || 
+                    booking.customer.firstName.toLowerCase().includes(searchFilter) ||
+                    booking.customer.lastName.toLowerCase().includes(searchFilter) ||
+                    booking.customer.email.toLowerCase().includes(searchFilter) ||
+                    booking.bookingId.toLowerCase().includes(searchFilter);
+                
+                return matchesService && matchesStatus && matchesDate && matchesSearch;
+            });
+            
+            displayBookings();
+            
+            // Filter-Status anzeigen
+            const filterCount = document.getElementById('filterCount');
+            if (filterCount) {
+                filterCount.textContent = `(${filteredBookings.length} von ${allBookings.length})`;
+            }
+        }
+        
+        function clearFilters() {
+            document.getElementById('serviceFilter').value = '';
+            document.getElementById('statusFilter').value = '';
+            document.getElementById('dateFilter').value = '';
+            document.getElementById('searchFilter').value = '';
+            filteredBookings = [...allBookings];
+            displayBookings();
+        }
+        
+        function exportFiltered() {
+            const serviceFilter = document.getElementById('serviceFilter').value;
+            const statusFilter = document.getElementById('statusFilter').value;
+            const dateFilter = document.getElementById('dateFilter').value;
+            const searchFilter = document.getElementById('searchFilter').value.toLowerCase();
+            
+            let filtered = allBookings.filter(booking => {
+                const matchesService = !serviceFilter || (booking.service?.title && booking.service.title.toLowerCase().includes(serviceFilter));
+                const matchesStatus = !statusFilter || booking.status === statusFilter;
+                const matchesDate = !dateFilter || booking.date === dateFilter;
+                const matchesSearch = !searchFilter || 
+                    booking.customer.firstName.toLowerCase().includes(searchFilter) ||
+                    booking.customer.lastName.toLowerCase().includes(searchFilter) ||
+                    booking.customer.email.toLowerCase().includes(searchFilter) ||
+                    booking.bookingId.toLowerCase().includes(searchFilter);
+                
+                return matchesService && matchesStatus && matchesDate && matchesSearch;
+            });
+            
+            // CSV Export der gefilterten Daten
+            const headers = ['Buchungs-ID', 'Datum', 'Uhrzeit', 'Service', 'Kunde', 'E-Mail', 'Telefon', 'Status', 'Gebucht am'];
+            const csvData = filtered.map(booking => [
+                booking.bookingId,
+                booking.date,
+                booking.time,
+                booking.service?.title || 'Unbekannt',
+                `${booking.customer.firstName} ${booking.customer.lastName}`,
+                booking.customer.email,
+                booking.customer.phone,
+                booking.status || 'Neu',
+                booking.timestamp ? new Date(booking.timestamp).toLocaleString('de-DE') : ''
+            ]);
+            
+            const csvContent = [headers, ...csvData]
+                .map(row => row.map(cell => `"${cell}"`).join(','))
+                .join('\n');
+            
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `elektro-eber-gefiltert-${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
+            
+            showNotification(`📊 ${filtered.length} gefilterte Einträge exportiert`, 'success');
+        }
+        
+        function saveFilterPreset() {
+            const preset = {
+                service: document.getElementById('serviceFilter').value,
+                status: document.getElementById('statusFilter').value,
+                date: document.getElementById('dateFilter').value,
+                search: document.getElementById('searchFilter').value,
+                name: prompt('Name für die Filter-Vorlage:') || 'Meine Vorlage'
+            };
+            
+            if (preset.name) {
+                const presets = JSON.parse(localStorage.getItem('elektro-eber-filter-presets') || '[]');
+                presets.push(preset);
+                localStorage.setItem('elektro-eber-filter-presets', JSON.stringify(presets));
+                showNotification('✅ Filter-Vorlage gespeichert', 'success');
+            }
+        }
+        
+        function addTestBooking() {
+            const testBooking = {
+                id: 'EB-TEST-' + Date.now(),
+                name: 'Max Mustermann',
+                email: 'max.mustermann@example.de',
+                phone: '+49 751 12345678',
+                date: new Date().toISOString().split('T')[0],
+                time: '14:00',
+                service: {
+                    name: 'Smart Home & KNX Beratung',
+                    price: 'Kostenlose Erstberatung'
+                },
+                message: 'Ich interessiere mich für eine Smart Home Lösung für mein Einfamilienhaus. Bitte um Rückruf für Terminvereinbarung.',
+                status: 'pending',
+                timestamp: new Date().toLocaleString('de-DE'),
+                type: 'appointment'
+            };
+            
+            const bookings = JSON.parse(localStorage.getItem('elektro-eber-bookings') || '[]');
+            bookings.push(testBooking);
+            localStorage.setItem('elektro-eber-bookings', JSON.stringify(bookings));
+            
+            refreshBookings();
+            showNotification('✅ Test-Termin wurde hinzugefügt', 'success');
+        }
+        
+        function deleteAllBookings() {
+            if (confirm('⚠️ ACHTUNG: Wirklich ALLE Buchungen löschen?\n\nDies kann nicht rückgängig gemacht werden!')) {
+                if (confirm('🔴 LETZTE WARNUNG: Alle Terminbuchungen werden unwiderruflich gelöscht!')) {
+                    localStorage.removeItem('elektro-eber-bookings');
+                    refreshBookings();
+                    alert('🗑️ Alle Buchungen wurden gelöscht');
+                }
+            }
+        }
+        
+        // Auto-refresh alle 5 Minuten
+        setInterval(refreshBookings, 300000);
+        
+        console.log('📊 Admin Dashboard bereit - Auto-Updates aktiv');
+    </script>
+</body>
+</html>

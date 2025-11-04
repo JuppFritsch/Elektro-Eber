@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧪 Buchungstest - Elektro Eber</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .test-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        .test-button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            margin: 0.5rem 0;
+        }
+        
+        .debug-output {
+            background: #1a1a1a;
+            color: #00ff00;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            min-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-form">
+        <h1>🧪 Einfacher Buchungstest</h1>
+        <p>Testen Sie hier die Buchungsfunktion ohne komplexe UI:</p>
+        
+        <form id="simpleBookingForm">
+            <div class="form-group">
+                <label>Service:</label>
+                <select id="testService" required>
+                    <option value="">Bitte wählen...</option>
+                    <option value="general">Allgemeine Beratung</option>
+                    <option value="planning">Projektplanung</option>
+                    <option value="smart-home">Smart Home Beratung</option>
+                    <option value="emergency">Vor-Ort Besichtigung</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Datum:</label>
+                <input type="date" id="testDate" required min="2025-01-01">
+            </div>
+            
+            <div class="form-group">
+                <label>Uhrzeit:</label>
+                <select id="testTime" required>
+                    <option value="">Bitte wählen...</option>
+                    <option value="09:00">09:00 Uhr</option>
+                    <option value="10:00">10:00 Uhr</option>
+                    <option value="11:00">11:00 Uhr</option>
+                    <option value="14:00">14:00 Uhr</option>
+                    <option value="15:00">15:00 Uhr</option>
+                    <option value="16:00">16:00 Uhr</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Vorname:</label>
+                <input type="text" id="testFirstName" required placeholder="Max">
+            </div>
+            
+            <div class="form-group">
+                <label>Nachname:</label>
+                <input type="text" id="testLastName" required placeholder="Mustermann">
+            </div>
+            
+            <div class="form-group">
+                <label>E-Mail:</label>
+                <input type="email" id="testEmail" required placeholder="max@example.com">
+            </div>
+            
+            <div class="form-group">
+                <label>Telefon:</label>
+                <input type="tel" id="testPhone" required placeholder="0123 456789">
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="testPrivacy" required style="width: auto; margin-right: 0.5rem;">
+                    Ich akzeptiere die Datenschutzbedingungen
+                </label>
+            </div>
+            
+            <button type="button" onclick="testBooking()" class="test-button">
+                🚀 Test-Buchung durchführen
+            </button>
+        </form>
+        
+        <div class="debug-output" id="debugOutput">
+            Bereit für Test-Buchung...<br>
+            Füllen Sie das Formular aus und klicken Sie auf "Test-Buchung durchführen"
+        </div>
+        
+        <div style="margin-top: 2rem;">
+            <a href="admin-dashboard.html" target="_blank" class="test-button" style="text-decoration: none; text-align: center; display: block;">
+                📊 Admin Dashboard öffnen (neuer Tab)
+            </a>
+            
+            <a href="index.html" class="test-button" style="text-decoration: none; text-align: center; display: block; background: var(--secondary);">
+                🏠 Zurück zur Hauptseite
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function log(message) {
+            const output = document.getElementById('debugOutput');
+            const timestamp = new Date().toLocaleTimeString('de-DE');
+            output.innerHTML += `[${timestamp}] ${message}<br>`;
+            output.scrollTop = output.scrollHeight;
+            console.log(message);
+        }
+        
+        function testBooking() {
+            log('🚀 Test-Buchung gestartet...');
+            
+            // 1. Formular-Daten sammeln
+            const formData = {
+                service: document.getElementById('testService').value,
+                date: document.getElementById('testDate').value,
+                time: document.getElementById('testTime').value,
+                firstName: document.getElementById('testFirstName').value,
+                lastName: document.getElementById('testLastName').value,
+                email: document.getElementById('testEmail').value,
+                phone: document.getElementById('testPhone').value,
+                privacy: document.getElementById('testPrivacy').checked
+            };
+            
+            log('📝 Gesammelte Daten: ' + JSON.stringify(formData, null, 2));
+            
+            // 2. Validierung
+            const errors = [];
+            if (!formData.service) errors.push('Service fehlt');
+            if (!formData.date) errors.push('Datum fehlt');
+            if (!formData.time) errors.push('Uhrzeit fehlt');
+            if (!formData.firstName) errors.push('Vorname fehlt');
+            if (!formData.lastName) errors.push('Nachname fehlt');
+            if (!formData.email) errors.push('E-Mail fehlt');
+            if (!formData.phone) errors.push('Telefon fehlt');
+            if (!formData.privacy) errors.push('Datenschutz nicht akzeptiert');
+            
+            if (errors.length > 0) {
+                log('❌ Validierungsfehler: ' + errors.join(', '));
+                return;
+            }
+            
+            log('✅ Validierung erfolgreich');
+            
+            // 3. Buchungsobjekt erstellen
+            const bookingData = {
+                bookingId: 'SIMPLE-TEST-' + Date.now(),
+                service: {
+                    type: formData.service,
+                    title: getServiceTitle(formData.service),
+                    duration: 30,
+                    price: 'Kostenlos'
+                },
+                date: formData.date,
+                time: formData.time,
+                customer: {
+                    firstName: formData.firstName,
+                    lastName: formData.lastName,
+                    email: formData.email,
+                    phone: formData.phone,
+                    address: 'Test-Adresse',
+                    message: 'Simple Test Buchung'
+                },
+                status: 'Neu',
+                timestamp: new Date().toISOString(),
+                source: 'simple-test'
+            };
+            
+            log('📦 Buchungsdaten erstellt: ' + JSON.stringify(bookingData, null, 2));
+            
+            // 4. In LocalStorage speichern
+            try {
+                const existingBookings = JSON.parse(localStorage.getItem('elektro-eber-bookings') || '[]');
+                existingBookings.push(bookingData);
+                localStorage.setItem('elektro-eber-bookings', JSON.stringify(existingBookings));
+                
+                log('✅ Erfolgreich in LocalStorage gespeichert!');
+                log('📊 Gesamt Buchungen: ' + existingBookings.length);
+                log('🎯 Buchungs-ID: ' + bookingData.bookingId);
+                log('');
+                log('🎉 SUCCESS! Buchung komplett!');
+                log('👀 Öffnen Sie jetzt das Admin Dashboard um die Buchung zu sehen.');
+                
+                // Formular zurücksetzen
+                document.getElementById('simpleBookingForm').reset();
+                
+            } catch (error) {
+                log('❌ FEHLER beim Speichern: ' + error.message);
+                log('🔍 LocalStorage verfügbar: ' + (typeof Storage !== "undefined"));
+            }
+        }
+        
+        function getServiceTitle(type) {
+            const titles = {
+                'general': 'Allgemeine Beratung',
+                'planning': 'Projektplanung', 
+                'smart-home': 'Smart Home Beratung',
+                'emergency': 'Vor-Ort Besichtigung'
+            };
+            return titles[type] || 'Unbekannter Service';
+        }
+        
+        // Auto-Fill für schnelles Testen
+        document.addEventListener('DOMContentLoaded', function() {
+            // Setze Standardwerte für schnelles Testen
+            document.getElementById('testService').value = 'general';
+            document.getElementById('testDate').value = '2025-01-15';
+            document.getElementById('testTime').value = '14:00';
+            document.getElementById('testFirstName').value = 'Test';
+            document.getElementById('testLastName').value = 'User';
+            document.getElementById('testEmail').value = 'test@example.com';
+            document.getElementById('testPhone').value = '0123 456789';
+            document.getElementById('testPrivacy').checked = true;
+            
+            log('✅ Formular mit Testdaten vorgefüllt - bereit zum Testen!');
+        });
+    </script>
+</body>
+</html>

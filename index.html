@@ -1,13 +1,377 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <!-- Basic Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>⚡ Elektro Eber | Innovative Elektroinstallationen</title>
-    <meta name="description" content="Elektro Eber - Ihr innovativer Elektroinstallationsbetrieb. Professionelle Elektroarbeiten von Dennis Eckert, Jupp Fritsch und Cameron Grayling.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>⚡ Elektro Eber | Professionelle Elektroinstallationen & Smart Home Lösungen</title>
+    <meta name="description" content="Elektro Eber - Ihr zuverlässiger Elektroinstallationsbetrieb für innovative Elektroarbeiten, Smart Home Systeme und Notdienst. Dennis Eckert, Jupp Fritsch und Cameron Grayling bieten professionelle Elektroinstallationen in Deutschland.">
+    <meta name="keywords" content="Elektroinstallation, Elektriker, Smart Home, Notdienst, Elektroarbeiten, Hausinstallation, Gewerbliche Elektrik, Industrielle Elektrik, Elektro Eber, Dennis Eckert, Jupp Fritsch, Cameron Grayling, Deutschland">
+    <meta name="author" content="Elektro Eber - Dennis Eckert, Jupp Fritsch, Cameron Grayling">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://elektro-eber.de/">
+    
+    <!-- Language and Geographic -->
+    <meta name="language" content="German">
+    <meta name="geo.region" content="DE">
+    <meta name="geo.placename" content="Deutschland">
+    <meta name="geo.position" content="51.1657;10.4515">
+    <meta name="ICBM" content="51.1657, 10.4515">
+    
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="⚡ Elektro Eber | Professionelle Elektroinstallationen & Smart Home Lösungen">
+    <meta property="og:description" content="Ihr zuverlässiger Elektroinstallationsbetrieb für innovative Elektroarbeiten, Smart Home Systeme und 24/7 Notdienst. Professionelle Elektroinstallationen von erfahrenen Elektrikern.">
+    <meta property="og:url" content="https://elektro-eber.de/">
+    <meta property="og:site_name" content="Elektro Eber">
+    <meta property="og:image" content="https://elektro-eber.de/images/elektro-eber-og-image.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Elektro Eber - Professionelle Elektroinstallationen und Smart Home Lösungen">
+    <meta property="og:locale" content="de_DE">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="⚡ Elektro Eber | Professionelle Elektroinstallationen & Smart Home Lösungen">
+    <meta name="twitter:description" content="Ihr zuverlässiger Elektroinstallationsbetrieb für innovative Elektroarbeiten, Smart Home Systeme und 24/7 Notdienst.">
+    <meta name="twitter:image" content="https://elektro-eber.de/images/elektro-eber-twitter-card.webp">
+    <meta name="twitter:image:alt" content="Elektro Eber - Professionelle Elektroinstallationen">
+    <meta name="twitter:site" content="@elektro_eber">
+    <meta name="twitter:creator" content="@elektro_eber">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#f59e0b">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- iOS PWA Support -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Elektro Eber">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    
+    <!-- Windows PWA Support -->
+    <meta name="msapplication-TileImage" content="/icons/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#f59e0b">
+    <meta name="msapplication-TileColor" content="#f59e0b">
+    <meta name="msapplication-navbutton-color" content="#f59e0b">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Structured Data for SEO and Rich Snippets -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Elektro Eber",
+        "description": "Professioneller Elektroinstallationsbetrieb für innovative Elektroarbeiten, Smart Home Systeme und Notdienst",
+        "url": "https://elektro-eber.de",
+        "telephone": "+49-123-456789",
+        "email": "info@elektro-eber.de",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Musterstraße 123",
+            "addressLocality": "Musterstadt",
+            "postalCode": "12345",
+            "addressCountry": "DE",
+            "addressRegion": "Deutschland"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 51.1657,
+            "longitude": 10.4515
+        },
+        "openingHours": [
+            "Mo-Fr 08:00-18:00",
+            "Sa 09:00-14:00"
+        ],
+        "priceRange": "€€",
+        "currenciesAccepted": "EUR",
+        "paymentAccepted": ["Cash", "Credit Card", "Bank Transfer", "Invoice"],
+        "image": [
+            "https://elektro-eber.de/images/elektro-eber-logo.webp",
+            "https://elektro-eber.de/images/team-photo.webp",
+            "https://elektro-eber.de/images/workshop.webp"
+        ],
+        "logo": "https://elektro-eber.de/images/elektro-eber-logo.webp",
+        "sameAs": [
+            "https://www.facebook.com/elektro.eber",
+            "https://www.instagram.com/elektro_eber",
+            "https://www.linkedin.com/company/elektro-eber"
+        ],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Elektroinstallation Services",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Hausinstallation",
+                        "description": "Komplette Elektroinstallation für Wohnhäuser"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Smart Home Installation",
+                        "description": "Installation und Konfiguration von Smart Home Systemen"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Gewerbliche Elektrik",
+                        "description": "Elektroinstallationen für Gewerbe und Industrie"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "24/7 Notdienst",
+                        "description": "Elektriker Notdienst rund um die Uhr"
+                    }
+                }
+            ]
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "127",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "review": [
+            {
+                "@type": "Review",
+                "author": {
+                    "@type": "Person",
+                    "name": "Maria Schmidt"
+                },
+                "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "5",
+                    "bestRating": "5"
+                },
+                "reviewBody": "Ausgezeichnete Arbeit! Das Team von Elektro Eber hat unsere komplette Hausinstallation erneuert. Sehr professionell und zuverlässig.",
+                "datePublished": "2024-10-15"
+            },
+            {
+                "@type": "Review",
+                "author": {
+                    "@type": "Person",
+                    "name": "Thomas Müller"
+                },
+                "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "5",
+                    "bestRating": "5"
+                },
+                "reviewBody": "Super Smart Home Installation! Alles funktioniert perfekt und die Beratung war erstklassig.",
+                "datePublished": "2024-09-28"
+            }
+        ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Elektro Eber",
+        "url": "https://elektro-eber.de",
+        "logo": "https://elektro-eber.de/images/elektro-eber-logo.webp",
+        "description": "Innovativer Elektroinstallationsbetrieb mit Fokus auf Smart Home Lösungen und professionelle Elektroarbeiten",
+        "foundingDate": "2018",
+        "numberOfEmployees": "3",
+        "slogan": "Innovative Elektroinstallationen für die Zukunft",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+49-123-456789",
+            "contactType": "customer service",
+            "email": "info@elektro-eber.de",
+            "availableLanguage": ["German", "English"],
+            "areaServed": "DE"
+        },
+        "founder": [
+            {
+                "@type": "Person",
+                "name": "Dennis Eckert",
+                "jobTitle": "Elektrikermeister"
+            },
+            {
+                "@type": "Person",
+                "name": "Jupp Fritsch",
+                "jobTitle": "Elektrikermeister"
+            },
+            {
+                "@type": "Person",
+                "name": "Cameron Grayling",
+                "jobTitle": "Smart Home Spezialist"
+            }
+        ],
+        "employee": [
+            {
+                "@type": "Person",
+                "name": "Dennis Eckert",
+                "jobTitle": "Elektrikermeister",
+                "description": "15+ Jahre Erfahrung in Elektroinstallationen"
+            },
+            {
+                "@type": "Person",
+                "name": "Jupp Fritsch",
+                "jobTitle": "Elektrikermeister",
+                "description": "Spezialist für gewerbliche Elektroinstallationen"
+            },
+            {
+                "@type": "Person",
+                "name": "Cameron Grayling",
+                "jobTitle": "Smart Home Spezialist",
+                "description": "Experte für moderne Smart Home Technologien"
+            }
+        ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Elektro Eber",
+        "url": "https://elektro-eber.de",
+        "description": "Professioneller Elektroinstallationsbetrieb für innovative Elektroarbeiten und Smart Home Lösungen",
+        "inLanguage": "de",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://elektro-eber.de/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Elektro Eber",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://elektro-eber.de/images/elektro-eber-logo.webp",
+                "width": 300,
+                "height": 100
+            }
+        }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://elektro-eber.de/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Services",
+                "item": "https://elektro-eber.de/#services"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Team",
+                "item": "https://elektro-eber.de/#team"
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Projekte",
+                "item": "https://elektro-eber.de/#projects"
+            },
+            {
+                "@type": "ListItem",
+                "position": 5,
+                "name": "Kontakt",
+                "item": "https://elektro-eber.de/#contact"
+            }
+        ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Welche Elektroinstallationen bieten Sie an?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Wir bieten komplette Hausinstallationen, gewerbliche Elektrik, Smart Home Systeme, Industrielle Installationen und 24/7 Notdienst. Alle Arbeiten werden von zertifizierten Elektrikern durchgeführt."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Haben Sie einen 24/7 Notdienst?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Ja, wir bieten einen 24/7 Elektriker-Notdienst für dringende Elektroarbeiten und Störungen. Rufen Sie uns jederzeit unter +49-123-456789 an."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Installieren Sie auch Smart Home Systeme?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Absolut! Wir sind Spezialisten für Smart Home Installationen und bieten komplette Lösungen von der Planung bis zur Konfiguration Ihrer intelligenten Haussteuerung."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Wie kann ich einen Termin vereinbaren?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sie können einen Termin über unser Online-Buchungssystem, per Telefon unter +49-123-456789 oder per E-Mail an info@elektro-eber.de vereinbaren."
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
     <!-- Sidebar Navigation -->
@@ -27,6 +391,7 @@
             <li><a href="#services" class="nav-link"><i class="fas fa-cogs"></i> Leistungen</a></li>
             <li><a href="#team" class="nav-link"><i class="fas fa-users"></i> Team</a></li>
             <li><a href="#projects" class="nav-link"><i class="fas fa-briefcase"></i> Projekte</a></li>
+            <li><a href="#certifications" class="nav-link"><i class="fas fa-certificate"></i> Zertifikate</a></li>
             <li><a href="#faq" class="nav-link"><i class="fas fa-question-circle"></i> FAQ</a></li>
             <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Kontakt</a></li>
         </ul>
@@ -82,6 +447,10 @@
                     <button id="openProjectModal" class="btn-primary-large">
                         <span>Projekt starten</span>
                         <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button id="openAppointmentModal" class="btn-secondary-large">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Termin buchen</span>
                     </button>
                     <div class="hero-stats-mini">
                         <div class="stat-mini">
@@ -166,6 +535,191 @@
                         <div class="stat-number" data-target="2">0</div>
                         <div class="stat-label">Jahre Erfahrung</div>
                         <div class="stat-growth">Gegründet 2023</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Service Map -->
+        <section class="interactive-service-map">
+            <div class="section-intro">
+                <div class="intro-content">
+                    <h2>Interaktive Service-Übersicht</h2>
+                    <p>Entdecken Sie unsere Leistungsbereiche - fahren Sie mit der Maus über die Bereiche oder klicken Sie für Details.</p>
+                </div>
+            </div>
+            
+            <div class="service-map-container">
+                <div class="service-map-grid">
+                    <!-- Residential Services -->
+                    <div class="service-zone residential" data-service="residential">
+                        <div class="zone-content">
+                            <div class="zone-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <h3>Wohnbau</h3>
+                            <p>Hausinstallationen & Renovierungen</p>
+                            <div class="zone-stats">
+                                <span class="stat-item">
+                                    <i class="fas fa-plug"></i>
+                                    <span>150+ Projekte</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="zone-details">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Komplette Hausinstallationen</li>
+                                <li><i class="fas fa-check"></i> Renovierung & Modernisierung</li>
+                                <li><i class="fas fa-check"></i> Sicherheitssysteme</li>
+                                <li><i class="fas fa-check"></i> Beleuchtungskonzepte</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Commercial Services -->
+                    <div class="service-zone commercial" data-service="commercial">
+                        <div class="zone-content">
+                            <div class="zone-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h3>Gewerbe</h3>
+                            <p>Büros, Geschäfte & Praxen</p>
+                            <div class="zone-stats">
+                                <span class="stat-item">
+                                    <i class="fas fa-briefcase"></i>
+                                    <span>80+ Objekte</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="zone-details">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Büroelektrik</li>
+                                <li><i class="fas fa-check"></i> Netzwerkverkabelung</li>
+                                <li><i class="fas fa-check"></i> Sicherheitstechnik</li>
+                                <li><i class="fas fa-check"></i> Zugangskontrolle</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Industrial Services -->
+                    <div class="service-zone industrial" data-service="industrial">
+                        <div class="zone-content">
+                            <div class="zone-icon">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <h3>Industrie</h3>
+                            <p>Produktionsstätten & Anlagen</p>
+                            <div class="zone-stats">
+                                <span class="stat-item">
+                                    <i class="fas fa-cogs"></i>
+                                    <span>25+ Anlagen</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="zone-details">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Maschineninstallationen</li>
+                                <li><i class="fas fa-check"></i> Schaltschrankbau</li>
+                                <li><i class="fas fa-check"></i> Steuerungstechnik</li>
+                                <li><i class="fas fa-check"></i> Wartung & Service</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Smart Technology -->
+                    <div class="service-zone smart" data-service="smart">
+                        <div class="zone-content">
+                            <div class="zone-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3>Smart Tech</h3>
+                            <p>Intelligente Lösungen</p>
+                            <div class="zone-stats">
+                                <span class="stat-item">
+                                    <i class="fas fa-wifi"></i>
+                                    <span>50+ Systeme</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="zone-details">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Smart Home Systeme</li>
+                                <li><i class="fas fa-check"></i> IoT Integration</li>
+                                <li><i class="fas fa-check"></i> Automatisierung</li>
+                                <li><i class="fas fa-check"></i> Fernüberwachung</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Emergency Services -->
+                    <div class="service-zone emergency" data-service="emergency">
+                        <div class="zone-content">
+                            <div class="zone-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3>Notdienst</h3>
+                            <p>24/7 Verfügbarkeit</p>
+                            <div class="zone-stats">
+                                <span class="stat-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Rund um die Uhr</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="zone-details">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Störungsbeseitigung</li>
+                                <li><i class="fas fa-check"></i> Sicherheitsprüfungen</li>
+                                <li><i class="fas fa-check"></i> Sofortmaßnahmen</li>
+                                <li><i class="fas fa-check"></i> Schnelle Reaktion</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Consultation Services -->
+                    <div class="service-zone consultation" data-service="consultation">
+                        <div class="zone-content">
+                            <div class="zone-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h3>Beratung</h3>
+                            <p>Planung & Konzeption</p>
+                            <div class="zone-stats">
+                                <span class="stat-item">
+                                    <i class="fas fa-comments"></i>
+                                    <span>Kostenlos</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="zone-details">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Projektplanung</li>
+                                <li><i class="fas fa-check"></i> Kostenvoranschläge</li>
+                                <li><i class="fas fa-check"></i> Technische Beratung</li>
+                                <li><i class="fas fa-check"></i> Lösungskonzepte</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service Details Modal -->
+                <div id="serviceModal" class="service-modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 id="modalTitle">Service Details</h3>
+                            <button class="modal-close">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="modalContent">
+                                <!-- Dynamic content will be inserted here -->
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn-primary" id="contactBtn">
+                                <i class="fas fa-phone"></i>
+                                Jetzt anfragen
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -364,6 +918,17 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            
+            <div class="services-cta">
+                <div class="cta-content">
+                    <h3>Bereit für Ihr Elektroprojekt?</h3>
+                    <p>Vereinbaren Sie einen kostenlosen Beratungstermin und lassen Sie uns über Ihre Pläne sprechen!</p>
+                    <button id="openAppointmentModalService" class="btn-primary">
+                        <i class="fas fa-calendar-check"></i>
+                        Kostenlose Beratung buchen
+                    </button>
                 </div>
             </div>
         </section>
@@ -665,6 +1230,345 @@
                             <span class="project-size">
                                 <i class="fas fa-expand"></i> 1200m²
                             </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="certifications-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2>🏆 Zertifikate & Qualifikationen</h2>
+                    <p>Vertrauen Sie auf unsere geprüfte Expertise und offiziell anerkannten Qualifikationen</p>
+                </div>
+
+                <div class="certifications-content">
+                    <div class="certifications-intro">
+                        <div class="intro-text">
+                            <h3>Ihre Sicherheit ist unser Standard</h3>
+                            <p>Als zertifizierter Elektrobetrieb erfüllen wir alle gesetzlichen Anforderungen und gehen darüber hinaus. Unsere Qualifikationen garantieren Ihnen höchste Sicherheit und Qualität bei allen Elektroarbeiten.</p>
+                            <div class="intro-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-shield-check"></i>
+                                    <span>Geprüfte Fachkräfte nach DIN VDE</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-certificate"></i>
+                                    <span>Aktuelle Fortbildungszertifikate</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-handshake"></i>
+                                    <span>Vollständig versichert & boniert</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="intro-stats">
+                            <div class="stat-box">
+                                <div class="stat-icon">
+                                    <i class="fas fa-award"></i>
+                                </div>
+                                <div class="stat-number">12+</div>
+                                <div class="stat-label">Zertifikate</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="stat-number">25+</div>
+                                <div class="stat-label">Jahre Erfahrung</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-icon">
+                                    <i class="fas fa-users-cog"></i>
+                                </div>
+                                <div class="stat-number">100%</div>
+                                <div class="stat-label">Fachkräfte</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="certifications-grid">
+                        <!-- Hauptzertifikate -->
+                        <div class="certification-card featured">
+                            <div class="cert-badge">
+                                <i class="fas fa-star"></i>
+                                <span>Hauptqualifikation</span>
+                            </div>
+                            <div class="cert-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3>Elektrotechniker-Meister</h3>
+                            <p>Vollständige Berechtigung für alle Elektroinstallationen nach VDE-Normen</p>
+                            <div class="cert-details">
+                                <div class="cert-detail">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Erworben: 2019</span>
+                                </div>
+                                <div class="cert-detail">
+                                    <i class="fas fa-building"></i>
+                                    <span>Handwerkskammer Ulm</span>
+                                </div>
+                                <div class="cert-detail">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Gültig & aktuell</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DIN VDE Zertifikate -->
+                        <div class="certification-card">
+                            <div class="cert-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>DIN VDE 0100 Fachkraft</h3>
+                            <p>Berechtigung für Erstprüfungen elektrischer Anlagen</p>
+                            <div class="cert-details">
+                                <div class="cert-detail">
+                                    <i class="fas fa-sync-alt"></i>
+                                    <span>Zuletzt erneuert: 2024</span>
+                                </div>
+                                <div class="cert-detail">
+                                    <i class="fas fa-certificate"></i>
+                                    <span>VDE-Institut</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="certification-card">
+                            <div class="cert-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3>KNX/EIB Certified Partner</h3>
+                            <p>Zertifizierter Spezialist für KNX-Gebäudeautomation</p>
+                            <div class="cert-details">
+                                <div class="cert-detail">
+                                    <i class="fas fa-level-up-alt"></i>
+                                    <span>Advanced Level</span>
+                                </div>
+                                <div class="cert-detail">
+                                    <i class="fas fa-globe"></i>
+                                    <span>KNX Association</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="certification-card">
+                            <div class="cert-icon">
+                                <i class="fas fa-solar-panel"></i>
+                            </div>
+                            <h3>Photovoltaik-Fachkraft</h3>
+                            <p>Spezialist für PV-Anlagen und Energiespeichersysteme</p>
+                            <div class="cert-details">
+                                <div class="cert-detail">
+                                    <i class="fas fa-leaf"></i>
+                                    <span>TÜV Süd zertifiziert</span>
+                                </div>
+                                <div class="cert-detail">
+                                    <i class="fas fa-battery-three-quarters"></i>
+                                    <span>inkl. Speichersysteme</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="certification-card">
+                            <div class="cert-icon">
+                                <i class="fas fa-car-battery"></i>
+                            </div>
+                            <h3>E-Mobilität Spezialist</h3>
+                            <p>Fachkraft für Ladeinfrastruktur & Wallbox-Installation</p>
+                            <div class="cert-details">
+                                <div class="cert-detail">
+                                    <i class="fas fa-charging-station"></i>
+                                    <span>DGUV Vorschrift 3</span>
+                                </div>
+                                <div class="cert-detail">
+                                    <i class="fas fa-plug"></i>
+                                    <span>Bis 22kW AC/50kW DC</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="certification-card">
+                            <div class="cert-icon">
+                                <i class="fas fa-fire-extinguisher"></i>
+                            </div>
+                            <h3>Brandschutz-Fachkraft</h3>
+                            <p>Spezialist für elektrische Brandschutzanlagen</p>
+                            <div class="cert-details">
+                                <div class="cert-detail">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>DIN VDE 0833</span>
+                                </div>
+                                <div class="cert-detail">
+                                    <i class="fas fa-bell"></i>
+                                    <span>Brandmeldeanlagen</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Weitere Zertifikate -->
+                        <div class="certification-card">
+                            <div class="cert-icon">
+                                <i class="fas fa-hard-hat"></i>
+                            </div>
+                            <h3>Arbeitsschutz & Sicherheit</h3>
+                            <p>Fortbildungen in Arbeitssicherheit und Gesundheitsschutz</p>
+                            <div class="cert-details">
+                                <div class="cert-detail">
+                                    <i class="fas fa-first-aid"></i>
+                                    <span>Erste Hilfe Kurs</span>
+                                </div>
+                                <div class="cert-detail">
+                                    <i class="fas fa-helmet-safety"></i>
+                                    <span>DGUV Vorschriften</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="certification-card">
+                            <div class="cert-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <h3>Netzwerktechnik & IT</h3>
+                            <p>Fachkraft für strukturierte Verkabelung und IT-Systeme</p>
+                            <div class="cert-details">
+                                <div class="cert-detail">
+                                    <i class="fas fa-ethernet"></i>
+                                    <span>Cat 6A/7 Verkabelung</span>
+                                </div>
+                                <div class="cert-detail">
+                                    <i class="fas fa-wifi"></i>
+                                    <span>WLAN & Netzwerk</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Versicherungen & Garantien -->
+                    <div class="insurance-section">
+                        <h3>🛡️ Versicherungen & Garantien</h3>
+                        <div class="insurance-grid">
+                            <div class="insurance-item">
+                                <div class="insurance-icon">
+                                    <i class="fas fa-umbrella"></i>
+                                </div>
+                                <div class="insurance-content">
+                                    <h4>Betriebshaftpflicht</h4>
+                                    <p>10 Millionen € Deckungssumme</p>
+                                    <span class="insurance-provider">Allianz Versicherung</span>
+                                </div>
+                                <div class="insurance-status">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                            </div>
+
+                            <div class="insurance-item">
+                                <div class="insurance-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <div class="insurance-content">
+                                    <h4>Werkversicherung</h4>
+                                    <p>Vollschutz während der Bauphase</p>
+                                    <span class="insurance-provider">Würzburger Versicherung</span>
+                                </div>
+                                <div class="insurance-status">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                            </div>
+
+                            <div class="insurance-item">
+                                <div class="insurance-icon">
+                                    <i class="fas fa-medal"></i>
+                                </div>
+                                <div class="insurance-content">
+                                    <h4>Gewährleistung</h4>
+                                    <p>5 Jahre auf alle Elektroinstallationen</p>
+                                    <span class="insurance-provider">Elektro Eber Garantie</span>
+                                </div>
+                                <div class="insurance-status">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                            </div>
+
+                            <div class="insurance-item">
+                                <div class="insurance-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <div class="insurance-content">
+                                    <h4>Handwerksbürgschaft</h4>
+                                    <p>Bürgschaftsbank Baden-Württemberg</p>
+                                    <span class="insurance-provider">Bis 500.000 € Auftragssumme</span>
+                                </div>
+                                <div class="insurance-status">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mitgliedschaften -->
+                    <div class="memberships-section">
+                        <h3>🏢 Mitgliedschaften & Partner</h3>
+                        <div class="memberships-grid">
+                            <div class="membership-item">
+                                <div class="membership-logo">
+                                    <i class="fas fa-hammer"></i>
+                                </div>
+                                <div class="membership-info">
+                                    <h4>Handwerkskammer Ulm</h4>
+                                    <p>Eingetragener Handwerksbetrieb</p>
+                                </div>
+                            </div>
+
+                            <div class="membership-item">
+                                <div class="membership-logo">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div class="membership-info">
+                                    <h4>Fachverband Elektrotechnik</h4>
+                                    <p>Mitglied im Landesinnungsverband</p>
+                                </div>
+                            </div>
+
+                            <div class="membership-item">
+                                <div class="membership-logo">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <div class="membership-info">
+                                    <h4>Bundesverband Solarwirtschaft</h4>
+                                    <p>Partner für Erneuerbare Energien</p>
+                                </div>
+                            </div>
+
+                            <div class="membership-item">
+                                <div class="membership-logo">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="membership-info">
+                                    <h4>VDE Verband</h4>
+                                    <p>Mitglied im Elektrotechnik-Verband</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Call to Action -->
+                    <div class="certifications-cta">
+                        <div class="cta-content">
+                            <h3>🔍 Zertifikate einsehen</h3>
+                            <p>Gerne zeigen wir Ihnen auf Anfrage alle unsere Zertifikate und Qualifikationsnachweise vor Ort.</p>
+                            <div class="cta-buttons">
+                                <button id="openAppointmentModalCert" class="btn-primary-large">
+                                    <i class="fas fa-calendar-check"></i>
+                                    Termin vereinbaren
+                                </button>
+                                <a href="tel:+49123456789" class="btn-secondary-large">
+                                    <i class="fas fa-phone"></i>
+                                    Direkt anrufen
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1157,6 +2061,114 @@
         </div>
     </div>
 
+    <!-- Simple Appointment Modal -->
+    <div id="appointmentModal" class="modal">
+        <div class="modal-content simple-appointment-modal">
+            <div class="modal-header">
+                <h2>📅 Beratungstermin vereinbaren</h2>
+                <span class="modal-close" id="closeAppointmentModal">&times;</span>
+            </div>
+            
+            <div class="appointment-content">
+                <div class="appointment-info">
+                    <h3>Kostenlose Erstberatung buchen</h3>
+                    <p>Vereinbaren Sie ganz einfach einen kostenlosen Beratungstermin. Wir melden uns innerhalb von 24 Stunden bei Ihnen zurück.</p>
+                    
+                    <div class="appointment-benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Kostenlose Erstberatung (30 Min)</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Unverbindliche Projektplanung</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Schnelle Rückmeldung in 24h</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <form id="appointmentForm" class="simple-appointment-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="bookingName">Name *</label>
+                            <input type="text" id="bookingName" required placeholder="Ihr vollständiger Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="bookingPhone">Telefon *</label>
+                            <input type="tel" id="bookingPhone" required placeholder="Ihre Telefonnummer">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="bookingEmail">E-Mail *</label>
+                            <input type="email" id="bookingEmail" required placeholder="ihre.email@beispiel.de">
+                        </div>
+                        <div class="form-group">
+                            <label for="bookingPreferredDate">Wunschdatum</label>
+                            <input type="date" id="bookingPreferredDate" min="" placeholder="Wählen Sie ein Datum">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="bookingPreferredTime">Wunschzeit</label>
+                            <select id="bookingPreferredTime">
+                                <option value="">Bitte wählen</option>
+                                <option value="08:00">08:00 - Früh</option>
+                                <option value="09:00">09:00</option>
+                                <option value="10:00">10:00</option>
+                                <option value="11:00">11:00</option>
+                                <option value="12:00">12:00</option>
+                                <option value="13:00">13:00 - Mittagspause</option>
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+                                <option value="18:00">18:00 - Abends</option>
+                                <option value="flexible">Flexibel</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bookingService">Beratungsthema</label>
+                        <select id="bookingService">
+                            <option value="">Wofür benötigen Sie eine Beratung?</option>
+                            <option value="general">Allgemeine Elektroarbeiten</option>
+                            <option value="renovation">Renovierung/Sanierung</option>
+                            <option value="smart-home">Smart Home & KNX</option>
+                            <option value="solar">Photovoltaik & Solartechnik</option>
+                            <option value="emergency">Notfall/Reparatur</option>
+                            <option value="planning">Neuplanung/Neubau</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bookingMessage">Nachricht</label>
+                        <textarea id="bookingMessage" rows="4" placeholder="Beschreiben Sie kurz Ihr Projekt oder Ihre Fragen..."></textarea>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="bookingPrivacy" required>
+                            <span class="checkmark"></span>
+                            Ich stimme der Datenschutzerklärung zu und bin damit einverstanden, dass meine Daten zur Bearbeitung meiner Anfrage gespeichert werden. *
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary-large" id="submitAppointment">
+                        <i class="fas fa-calendar-check"></i>
+                        Termin anfragen
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- Project Selection Modal -->
     <div id="projectModal" class="modal">
         <div class="modal-content">
@@ -1179,58 +2191,229 @@
                     </div>
                     
                     <div class="project-types">
-                        <div class="project-type-card" data-type="residential" data-base-price="2500">
-                            <div class="type-icon">
-                                <i class="fas fa-home"></i>
+                        <!-- Wohngebäude Kategorie -->
+                        <div class="project-category">
+                            <h4><i class="fas fa-home"></i> Wohngebäude</h4>
+                            <div class="category-cards">
+                                <div class="project-type-card" data-type="house-new" data-base-price="5500">
+                                    <div class="type-icon"><i class="fas fa-hammer"></i></div>
+                                    <h5>Neubau Einfamilienhaus</h5>
+                                    <p>Komplette Elektroinstallation</p>
+                                    <div class="price-range">ab 5.500€</div>
+                                </div>
+                                
+                                <div class="project-type-card" data-type="house-renovation" data-base-price="3500">
+                                    <div class="type-icon"><i class="fas fa-tools"></i></div>
+                                    <h5>Haus-Renovierung</h5>
+                                    <p>Modernisierung bestehender Elektrik</p>
+                                    <div class="price-range">ab 3.500€</div>
+                                </div>
+                                
+                                <div class="project-type-card" data-type="apartment" data-base-price="1800">
+                                    <div class="type-icon"><i class="fas fa-building"></i></div>
+                                    <h5>Wohnung</h5>
+                                    <p>Elektroinstallation für Wohnung</p>
+                                    <div class="price-range">ab 1.800€</div>
+                                </div>
+                                
+                                <div class="project-type-card" data-type="basement" data-base-price="1200">
+                                    <div class="type-icon"><i class="fas fa-stairs"></i></div>
+                                    <h5>Keller/Dachboden</h5>
+                                    <p>Ausbau von Keller oder Dachgeschoss</p>
+                                    <div class="price-range">ab 1.200€</div>
+                                </div>
+                                
+                                <div class="project-type-card" data-type="garden" data-base-price="800">
+                                    <div class="type-icon"><i class="fas fa-leaf"></i></div>
+                                    <h5>Garten & Außenbereich</h5>
+                                    <p>Beleuchtung, Steckdosen, Garage</p>
+                                    <div class="price-range">ab 800€</div>
+                                </div>
                             </div>
-                            <h3>Wohngebäude</h3>
-                            <p>Einfamilienhaus, Wohnung, Renovierung</p>
-                            <div class="price-range">ab 2.500€</div>
                         </div>
                         
-                        <div class="project-type-card" data-type="commercial" data-base-price="8500">
-                            <div class="type-icon">
-                                <i class="fas fa-building"></i>
+                        <!-- Gewerbe Kategorie -->
+                        <div class="project-category">
+                            <h4><i class="fas fa-briefcase"></i> Gewerbe & Büro</h4>
+                            <div class="category-cards">
+                                <div class="project-type-card" data-type="office" data-base-price="4500">
+                                    <div class="type-icon"><i class="fas fa-desktop"></i></div>
+                                    <h5>Büroräume</h5>
+                                    <p>Arbeitsplätze, Netzwerk, Beleuchtung</p>
+                                    <div class="price-range">ab 4.500€</div>
+                                </div>
+                                
+                                <div class="project-type-card" data-type="retail" data-base-price="6500">
+                                    <div class="type-icon"><i class="fas fa-store"></i></div>
+                                    <h5>Einzelhandel</h5>
+                                    <p>Ladengeschäft, Präsentationsbeleuchtung</p>
+                                    <div class="price-range">ab 6.500€</div>
+                                </div>
+                                
+                                <div class="project-type-card" data-type="restaurant" data-base-price="8500">
+                                    <div class="type-icon"><i class="fas fa-utensils"></i></div>
+                                    <h5>Gastronomie</h5>
+                                    <p>Restaurant, Café, Küche</p>
+                                    <div class="price-range">ab 8.500€</div>
+                                </div>
+                                
+                                <div class="project-type-card" data-type="medical" data-base-price="7500">
+                                    <div class="type-icon"><i class="fas fa-user-md"></i></div>
+                                    <h5>Arztpraxis</h5>
+                                    <p>Medizinische Einrichtungen</p>
+                                    <div class="price-range">ab 7.500€</div>
+                                </div>
+                                
+                                <div class="project-type-card" data-type="warehouse" data-base-price="12000">
+                                    <div class="type-icon"><i class="fas fa-warehouse"></i></div>
+                                    <h5>Lager & Logistik</h5>
+                                    <p>Lagerhallen, Verteilzentren</p>
+                                    <div class="price-range">ab 12.000€</div>
+                                </div>
                             </div>
-                            <h3>Gewerbe</h3>
-                            <p>Büros, Läden, Restaurants, Praxen</p>
-                            <div class="price-range">ab 8.500€</div>
                         </div>
                         
-                        <div class="project-type-card" data-type="industrial" data-base-price="15000">
-                            <div class="type-icon">
-                                <i class="fas fa-industry"></i>
+                        <!-- Industrie Kategorie -->
+                        <div class="project-category">
+                            <h4><i class="fas fa-industry"></i> Industrie & Produktion</h4>
+                            <div class="category-cards">
+                                <div class="project-type-card" data-type="production" data-base-price="25000">
+                                    <div class="type-icon"><i class="fas fa-cogs"></i></div>
+                                    <h5>Produktionshalle</h5>
+                                    <p>Maschinenanbindung, Steuerungen</p>
+                                    <div class="price-range">ab 25.000€</div>
+                                </div>
+                                
+                                <div class="project-type-card" data-type="control-cabinet" data-base-price="8500">
+                                    <div class="type-icon"><i class="fas fa-microchip"></i></div>
+                                    <h5>Schaltschrankbau</h5>
+                                    <p>Steuerungsschränke, SPS</p>
+                                    <div class="price-range">ab 8.500€</div>
+                                </div>
+                                
+                                <div class="project-type-card" data-type="machinery" data-base-price="15000">
+                                    <div class="type-icon"><i class="fas fa-robot"></i></div>
+                                    <h5>Maschinen-Installation</h5>
+                                    <p>Anschluss von Produktionsmaschinen</p>
+                                    <div class="price-range">ab 15.000€</div>
+                                </div>
+                                
+                                <div class="project-type-card" data-type="automation" data-base-price="18000">
+                                    <div class="type-icon"><i class="fas fa-project-diagram"></i></div>
+                                    <h5>Automatisierung</h5>
+                                    <p>Prozessautomatisierung, Industrie 4.0</p>
+                                    <div class="price-range">ab 18.000€</div>
+                                </div>
                             </div>
-                            <h3>Industrie</h3>
-                            <p>Produktionshallen, Maschinenschaltschränke</p>
-                            <div class="price-range">ab 15.000€</div>
                         </div>
                         
-                        <div class="project-type-card" data-type="smart" data-base-price="4500">
-                            <div class="type-icon">
-                                <i class="fas fa-brain"></i>
+                        <!-- Smart Technology Kategorie -->
+                        <div class="project-category">
+                            <h4><i class="fas fa-brain"></i> Smart Technology</h4>
+                            <div class="category-cards">
+                                <div class="project-type-card" data-type="smart-home-basic" data-base-price="3500">
+                                    <div class="type-icon"><i class="fas fa-home-lg-alt"></i></div>
+                                    <h5>Smart Home Basis</h5>
+                                    <p>Grundausstattung, Beleuchtung</p>
+                                    <div class="price-range">ab 3.500€</div>
+                                </div>
+                                
+                                <div class="project-type-card" data-type="smart-home-premium" data-base-price="8500">
+                                    <div class="type-icon"><i class="fas fa-magic"></i></div>
+                                    <h5>Smart Home Premium</h5>
+                                    <p>KNX, Vollausstattung, Sprachsteuerung</p>
+                                    <div class="price-range">ab 8.500€</div>
+                                </div>
+                                
+                                <div class="project-type-card" data-type="security" data-base-price="2500">
+                                    <div class="type-icon"><i class="fas fa-shield-alt"></i></div>
+                                    <h5>Sicherheitssystem</h5>
+                                    <p>Alarmanlage, Überwachung, Zutrittskontrolle</p>
+                                    <div class="price-range">ab 2.500€</div>
+                                </div>
+                                
+                                <div class="project-type-card" data-type="network" data-base-price="1500">
+                                    <div class="type-icon"><i class="fas fa-wifi"></i></div>
+                                    <h5>Netzwerk & WLAN</h5>
+                                    <p>Strukturierte Verkabelung, WLAN</p>
+                                    <div class="price-range">ab 1.500€</div>
+                                </div>
                             </div>
-                            <h3>Smart Home</h3>
-                            <p>KNX, Hausautomation, IoT-Systeme</p>
-                            <div class="price-range">ab 4.500€</div>
                         </div>
                         
-                        <div class="project-type-card" data-type="solar" data-base-price="12000">
-                            <div class="type-icon">
-                                <i class="fas fa-solar-panel"></i>
+                        <!-- Energie & Solar Kategorie -->
+                        <div class="project-category">
+                            <h4><i class="fas fa-bolt"></i> Energie & Photovoltaik</h4>
+                            <div class="category-cards">
+                                <div class="project-type-card" data-type="solar-small" data-base-price="8500">
+                                    <div class="type-icon"><i class="fas fa-solar-panel"></i></div>
+                                    <h5>PV-Anlage Klein</h5>
+                                    <p>Bis 10kWp, Einfamilienhaus</p>
+                                    <div class="price-range">ab 8.500€</div>
+                                </div>
+                                
+                                <div class="project-type-card" data-type="solar-large" data-base-price="18000">
+                                    <div class="type-icon"><i class="fas fa-sun"></i></div>
+                                    <h5>PV-Anlage Groß</h5>
+                                    <p>Über 10kWp, Gewerbe</p>
+                                    <div class="price-range">ab 18.000€</div>
+                                </div>
+                                
+                                <div class="project-type-card" data-type="battery" data-base-price="12000">
+                                    <div class="type-icon"><i class="fas fa-battery-full"></i></div>
+                                    <h5>Batteriespeicher</h5>
+                                    <p>Energiespeicher für PV-Anlagen</p>
+                                    <div class="price-range">ab 12.000€</div>
+                                </div>
+                                
+                                <div class="project-type-card" data-type="wallbox" data-base-price="1200">
+                                    <div class="type-icon"><i class="fas fa-charging-station"></i></div>
+                                    <h5>E-Mobility</h5>
+                                    <p>Wallbox, Ladeinfrastruktur</p>
+                                    <div class="price-range">ab 1.200€</div>
+                                </div>
+                                
+                                <div class="project-type-card" data-type="power-upgrade" data-base-price="2500">
+                                    <div class="type-icon"><i class="fas fa-plug"></i></div>
+                                    <h5>Hausanschluss-Upgrade</h5>
+                                    <p>Verstärkung der Hauseinspeisung</p>
+                                    <div class="price-range">ab 2.500€</div>
+                                </div>
                             </div>
-                            <h3>Photovoltaik</h3>
-                            <p>Solaranlagen, Batteriespeicher, E-Mobilität</p>
-                            <div class="price-range">ab 12.000€</div>
                         </div>
                         
-                        <div class="project-type-card" data-type="emergency" data-base-price="150">
-                            <div class="type-icon">
-                                <i class="fas fa-exclamation-triangle"></i>
+                        <!-- Service & Wartung Kategorie -->
+                        <div class="project-category">
+                            <h4><i class="fas fa-wrench"></i> Service & Notfall</h4>
+                            <div class="category-cards">
+                                <div class="project-type-card" data-type="emergency" data-base-price="150">
+                                    <div class="type-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                                    <h5>Notfall-Service</h5>
+                                    <p>24/7 Störungsbeseitigung</p>
+                                    <div class="price-range">ab 150€</div>
+                                </div>
+                                
+                                <div class="project-type-card" data-type="maintenance" data-base-price="280">
+                                    <div class="type-icon"><i class="fas fa-clipboard-check"></i></div>
+                                    <h5>Wartung & Prüfung</h5>
+                                    <p>E-Check, Sicherheitsprüfungen</p>
+                                    <div class="price-range">ab 280€</div>
+                                </div>
+                                
+                                <div class="project-type-card" data-type="repair" data-base-price="120">
+                                    <div class="type-icon"><i class="fas fa-hammer"></i></div>
+                                    <h5>Reparaturen</h5>
+                                    <p>Defekte Installationen reparieren</p>
+                                    <div class="price-range">ab 120€</div>
+                                </div>
+                                
+                                <div class="project-type-card" data-type="upgrade" data-base-price="450">
+                                    <div class="type-icon"><i class="fas fa-arrow-up"></i></div>
+                                    <h5>Elektro-Upgrade</h5>
+                                    <p>FI-Schutzschalter, Sicherungen</p>
+                                    <div class="price-range">ab 450€</div>
+                                </div>
                             </div>
-                            <h3>Notfall/Reparatur</h3>
-                            <p>Stromausfall, Störung, schnelle Hilfe</p>
-                            <div class="price-range">ab 150€</div>
                         </div>
                     </div>
                     
@@ -1282,25 +2465,204 @@
                             </div>
                             
                             <div class="project-details">
-                                <div class="detail-group">
-                                    <label for="projectSize">Projektgröße (m²)</label>
-                                    <input type="number" id="projectSize" placeholder="z.B. 120" min="1">
+                                <!-- Grunddaten -->
+                                <div class="details-section">
+                                    <h4><i class="fas fa-ruler-combined"></i> Projektdaten</h4>
+                                    <div class="detail-row">
+                                        <div class="detail-group">
+                                            <label for="projectSize">Projektgröße (m²)</label>
+                                            <input type="number" id="projectSize" placeholder="z.B. 120" min="1">
+                                        </div>
+                                        
+                                        <div class="detail-group">
+                                            <label for="rooms">Anzahl Räume</label>
+                                            <select id="rooms">
+                                                <option value="">Bitte wählen</option>
+                                                <option value="1-2">1-2 Räume</option>
+                                                <option value="3-5">3-5 Räume</option>
+                                                <option value="6-10">6-10 Räume</option>
+                                                <option value="11+">Mehr als 10 Räume</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-row">
+                                        <div class="detail-group">
+                                            <label for="buildingAge">Gebäudealter</label>
+                                            <select id="buildingAge">
+                                                <option value="">Bitte wählen</option>
+                                                <option value="new" data-multiplier="1.0">Neubau (0-5 Jahre)</option>
+                                                <option value="modern" data-multiplier="1.1">Modern (6-20 Jahre)</option>
+                                                <option value="older" data-multiplier="1.2">Älter (21-40 Jahre)</option>
+                                                <option value="old" data-multiplier="1.4">Alt (über 40 Jahre) (+40%)</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="detail-group">
+                                            <label for="accessibility">Zugänglichkeit</label>
+                                            <select id="accessibility">
+                                                <option value="">Bitte wählen</option>
+                                                <option value="easy" data-multiplier="1.0">Gut zugänglich</option>
+                                                <option value="normal" data-multiplier="1.1">Normal zugänglich (+10%)</option>
+                                                <option value="difficult" data-multiplier="1.25">Schwer zugänglich (+25%)</option>
+                                                <option value="very-difficult" data-multiplier="1.4">Sehr schwer zugänglich (+40%)</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                                 
-                                <div class="detail-group">
-                                    <label for="timeframe">Gewünschter Zeitrahmen</label>
-                                    <select id="timeframe">
-                                        <option value="">Bitte wählen</option>
-                                        <option value="asap" data-multiplier="1.3">So schnell wie möglich (+30%)</option>
-                                        <option value="1month" data-multiplier="1.1">Innerhalb 1 Monat (+10%)</option>
-                                        <option value="3months" data-multiplier="1.0">Innerhalb 3 Monate</option>
-                                        <option value="6months" data-multiplier="0.9">Innerhalb 6 Monate (-10%)</option>
-                                    </select>
+                                <!-- Spezielle Anforderungen -->
+                                <div class="details-section">
+                                    <h4><i class="fas fa-cog"></i> Spezielle Anforderungen</h4>
+                                    <div class="checkbox-grid">
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" id="emergencyLighting" data-price="450">
+                                            <span class="checkmark"></span>
+                                            <span>Notbeleuchtung (+450€)</span>
+                                        </label>
+                                        
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" id="fireAlarm" data-price="850">
+                                            <span class="checkmark"></span>
+                                            <span>Brandmeldeanlage (+850€)</span>
+                                        </label>
+                                        
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" id="accessControl" data-price="1200">
+                                            <span class="checkmark"></span>
+                                            <span>Zutrittskontrolle (+1.200€)</span>
+                                        </label>
+                                        
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" id="videoSurveillance" data-price="750">
+                                            <span class="checkmark"></span>
+                                            <span>Videoüberwachung (+750€)</span>
+                                        </label>
+                                        
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" id="smartLighting" data-price="650">
+                                            <span class="checkmark"></span>
+                                            <span>Intelligente Beleuchtung (+650€)</span>
+                                        </label>
+                                        
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" id="networkCabling" data-price="350">
+                                            <span class="checkmark"></span>
+                                            <span>Netzwerkverkabelung (+350€)</span>
+                                        </label>
+                                        
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" id="outdoorLighting" data-price="550">
+                                            <span class="checkmark"></span>
+                                            <span>Außenbeleuchtung (+550€)</span>
+                                        </label>
+                                        
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" id="powerUpgrade" data-price="1500">
+                                            <span class="checkmark"></span>
+                                            <span>Hausanschluss-Verstärkung (+1.500€)</span>
+                                        </label>
+                                        
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" id="earthingSystem" data-price="800">
+                                            <span class="checkmark"></span>
+                                            <span>Potentialausgleich erneuern (+800€)</span>
+                                        </label>
+                                        
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" id="surgProtection" data-price="450">
+                                            <span class="checkmark"></span>
+                                            <span>Überspannungsschutz (+450€)</span>
+                                        </label>
+                                        
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" id="emergencyPower" data-price="3500">
+                                            <span class="checkmark"></span>
+                                            <span>Notstromanlage (+3.500€)</span>
+                                        </label>
+                                        
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" id="electricHeating" data-price="2200">
+                                            <span class="checkmark"></span>
+                                            <span>Elektroheizung (+2.200€)</span>
+                                        </label>
+                                    </div>
                                 </div>
                                 
-                                <div class="detail-group">
-                                    <label for="additional">Zusätzliche Wünsche</label>
-                                    <textarea id="additional" placeholder="Beschreiben Sie weitere Details zu Ihrem Projekt..."></textarea>
+                                <!-- Zeitplanung und Konditionen -->
+                                <div class="details-section">
+                                    <h4><i class="fas fa-calendar-alt"></i> Zeitplanung & Konditionen</h4>
+                                    <div class="detail-row">
+                                        <div class="detail-group">
+                                            <label for="timeframe">Gewünschter Zeitrahmen</label>
+                                            <select id="timeframe">
+                                                <option value="">Bitte wählen</option>
+                                                <option value="asap" data-multiplier="1.3">Notfall - sofort (+30%)</option>
+                                                <option value="1week" data-multiplier="1.25">Innerhalb 1 Woche (+25%)</option>
+                                                <option value="1month" data-multiplier="1.1">Innerhalb 1 Monat (+10%)</option>
+                                                <option value="3months" data-multiplier="1.0">Innerhalb 3 Monate</option>
+                                                <option value="6months" data-multiplier="0.9">Innerhalb 6 Monate (-10%)</option>
+                                                <option value="flexible" data-multiplier="0.85">Flexibel planbar (-15%)</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="detail-group">
+                                            <label for="workingHours">Arbeitszeiten</label>
+                                            <select id="workingHours">
+                                                <option value="">Bitte wählen</option>
+                                                <option value="regular" data-multiplier="1.0">Reguläre Zeiten (8-17 Uhr)</option>
+                                                <option value="extended" data-multiplier="1.15">Erweiterte Zeiten (+15%)</option>
+                                                <option value="weekend" data-multiplier="1.3">Wochenende (+30%)</option>
+                                                <option value="night" data-multiplier="1.5">Nachtarbeit (+50%)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="detail-row">
+                                        <div class="detail-group">
+                                            <label for="materialQuality">Material-Qualität</label>
+                                            <select id="materialQuality">
+                                                <option value="">Bitte wählen</option>
+                                                <option value="standard" data-multiplier="1.0">Standard-Qualität</option>
+                                                <option value="premium" data-multiplier="1.2">Premium-Qualität (+20%)</option>
+                                                <option value="luxury" data-multiplier="1.4">Luxus-Ausstattung (+40%)</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="detail-group">
+                                            <label for="warranty">Gewährleistung</label>
+                                            <select id="warranty">
+                                                <option value="">Standard (2 Jahre)</option>
+                                                <option value="extended" data-multiplier="1.05">Erweitert 5 Jahre (+5%)</option>
+                                                <option value="premium" data-multiplier="1.1">Premium 10 Jahre (+10%)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Zusätzliche Informationen -->
+                                <div class="details-section">
+                                    <h4><i class="fas fa-comment-alt"></i> Zusätzliche Informationen</h4>
+                                    <div class="detail-group">
+                                        <label for="location">Standort (PLZ)</label>
+                                        <input type="text" id="location" placeholder="z.B. 88212" maxlength="5">
+                                        <small>Für genauere Anfahrtskosten-Berechnung</small>
+                                    </div>
+                                    
+                                    <div class="detail-group">
+                                        <label for="additional">Zusätzliche Wünsche & Besonderheiten</label>
+                                        <textarea id="additional" placeholder="Beschreiben Sie weitere Details zu Ihrem Projekt, besondere Anforderungen oder Wünsche..."></textarea>
+                                    </div>
+                                    
+                                    <div class="detail-group">
+                                        <label for="contactPreference">Bevorzugte Kontaktart</label>
+                                        <select id="contactPreference">
+                                            <option value="phone">Telefonisch</option>
+                                            <option value="email">Per E-Mail</option>
+                                            <option value="whatsapp">WhatsApp</option>
+                                            <option value="visit">Vor-Ort-Termin</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1310,25 +2672,80 @@
                                 <h3>💰 Preiseinschätzung</h3>
                                 
                                 <div class="price-breakdown">
-                                    <div class="price-item">
-                                        <span>Grundpreis:</span>
-                                        <span id="basePrice">0€</span>
+                                    <div class="price-section">
+                                        <h5>Grundkosten</h5>
+                                        <div class="price-item">
+                                            <span>Basispreis:</span>
+                                            <span id="basePrice">0€</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <span>Ausgewählte Services:</span>
+                                            <span id="servicesPrice">0€</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <span>Spezielle Anforderungen:</span>
+                                            <span id="specialsPrice">0€</span>
+                                        </div>
                                     </div>
-                                    <div class="price-item">
-                                        <span>Zusatzleistungen:</span>
-                                        <span id="servicesPrice">0€</span>
+                                    
+                                    <div class="price-section">
+                                        <h5>Zuschläge & Rabatte</h5>
+                                        <div class="price-item">
+                                            <span>Projektgröße:</span>
+                                            <span id="sizePrice">±0€</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <span>Gebäudezustand:</span>
+                                            <span id="buildingPrice">±0€</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <span>Zugänglichkeit:</span>
+                                            <span id="accessPrice">±0€</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <span>Zeitfaktor:</span>
+                                            <span id="timePrice">±0€</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <span>Arbeitszeiten:</span>
+                                            <span id="hoursPrice">±0€</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <span>Material-Qualität:</span>
+                                            <span id="materialPrice">±0€</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <span>Garantie-Upgrade:</span>
+                                            <span id="warrantyPrice">±0€</span>
+                                        </div>
                                     </div>
-                                    <div class="price-item">
-                                        <span>Größenzuschlag:</span>
-                                        <span id="sizePrice">0€</span>
+                                    
+                                    <div class="price-section">
+                                        <h5>Anfahrt & Service</h5>
+                                        <div class="price-item">
+                                            <span>Anfahrtskosten:</span>
+                                            <span id="travelPrice">0€</span>
+                                        </div>
+                                        <div class="price-item">
+                                            <span>Planung & Beratung:</span>
+                                            <span class="included">Kostenlos</span>
+                                        </div>
                                     </div>
-                                    <div class="price-item">
-                                        <span>Zeitfaktor:</span>
-                                        <span id="timePrice">±0€</span>
-                                    </div>
+                                    
                                     <div class="price-total">
-                                        <span>Geschätzte Kosten:</span>
+                                        <span>Geschätzte Gesamtkosten:</span>
                                         <span id="totalPrice">0€</span>
+                                    </div>
+                                    
+                                    <div class="price-range-info">
+                                        <div class="range-item">
+                                            <span>Minimum:</span>
+                                            <span id="minPrice">0€</span>
+                                        </div>
+                                        <div class="range-item">
+                                            <span>Maximum:</span>
+                                            <span id="maxPrice">0€</span>
+                                        </div>
                                     </div>
                                 </div>
                                 
@@ -1361,6 +2778,144 @@
         </div>
     </div>
 
+    <!-- DSGVO Cookie Banner -->
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-icon">
+                <i class="fas fa-cookie-bite"></i>
+            </div>
+            <div class="cookie-text">
+                <h3>🍪 Cookies & Datenschutz</h3>
+                <p>Wir verwenden Cookies, um Ihnen die beste Erfahrung auf unserer Website zu bieten. Durch die Nutzung unserer Website stimmen Sie der Verwendung von Cookies zu.</p>
+                <div class="cookie-details">
+                    <span><i class="fas fa-shield-alt"></i> Ihre Daten sind sicher</span>
+                    <span><i class="fas fa-cog"></i> Anpassbare Einstellungen</span>
+                    <span><i class="fas fa-info-circle"></i> Mehr Details verfügbar</span>
+                </div>
+            </div>
+            <div class="cookie-actions">
+                <button id="cookieAcceptAll" class="btn-cookie-accept">
+                    <i class="fas fa-check"></i> Alle akzeptieren
+                </button>
+                <button id="cookieDecline" class="btn-cookie-decline">
+                    <i class="fas fa-times"></i> Ablehnen
+                </button>
+                <button id="cookieSettings" class="btn-cookie-settings">
+                    <i class="fas fa-sliders-h"></i> Einstellungen
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Settings Modal -->
+    <div id="cookieModal" class="cookie-modal">
+        <div class="cookie-modal-content">
+            <div class="cookie-modal-header">
+                <h2><i class="fas fa-cookie-bite"></i> Cookie-Einstellungen</h2>
+                <button id="closeCookieModal" class="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cookie-modal-body">
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <h3>Notwendige Cookies</h3>
+                        <div class="cookie-toggle required">
+                            <span class="toggle-required">Erforderlich</span>
+                        </div>
+                    </div>
+                    <p>Diese Cookies sind für das Funktionieren der Website erforderlich und können nicht deaktiviert werden.</p>
+                    <div class="cookie-examples">
+                        <span class="cookie-tag">Session-Management</span>
+                        <span class="cookie-tag">Sicherheit</span>
+                        <span class="cookie-tag">Grundfunktionen</span>
+                    </div>
+                </div>
+
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <h3>Funktionale Cookies</h3>
+                        <div class="cookie-toggle">
+                            <input type="checkbox" id="functionalCookies" class="toggle-input">
+                            <label for="functionalCookies" class="toggle-slider"></label>
+                        </div>
+                    </div>
+                    <p>Diese Cookies ermöglichen erweiterte Funktionen und Personalisierung wie Theme-Einstellungen und Formulardaten.</p>
+                    <div class="cookie-examples">
+                        <span class="cookie-tag">Theme-Einstellungen</span>
+                        <span class="cookie-tag">Formulardaten</span>
+                        <span class="cookie-tag">Sprachauswahl</span>
+                    </div>
+                </div>
+
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <h3>Analytische Cookies</h3>
+                        <div class="cookie-toggle">
+                            <input type="checkbox" id="analyticalCookies" class="toggle-input">
+                            <label for="analyticalCookies" class="toggle-slider"></label>
+                        </div>
+                    </div>
+                    <p>Diese Cookies helfen uns, die Nutzung unserer Website zu verstehen und zu verbessern.</p>
+                    <div class="cookie-examples">
+                        <span class="cookie-tag">Besucherstatistiken</span>
+                        <span class="cookie-tag">Seitenaufrufe</span>
+                        <span class="cookie-tag">Nutzerverhalten</span>
+                    </div>
+                </div>
+
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <h3>Marketing Cookies</h3>
+                        <div class="cookie-toggle">
+                            <input type="checkbox" id="marketingCookies" class="toggle-input">
+                            <label for="marketingCookies" class="toggle-slider"></label>
+                        </div>
+                    </div>
+                    <p>Diese Cookies werden für Werbung und Marketing-Kampagnen verwendet.</p>
+                    <div class="cookie-examples">
+                        <span class="cookie-tag">Personalisierte Werbung</span>
+                        <span class="cookie-tag">Social Media</span>
+                        <span class="cookie-tag">Remarketing</span>
+                    </div>
+                </div>
+
+                <div class="cookie-info">
+                    <h3><i class="fas fa-info-circle"></i> Weitere Informationen</h3>
+                    <p>Weitere Details zu unserem Umgang mit Cookies und Ihren Daten finden Sie in unserer 
+                        <a href="#datenschutz" class="privacy-link">Datenschutzerklärung</a>.
+                    </p>
+                    <div class="cookie-data-info">
+                        <div class="data-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Cookies werden maximal 365 Tage gespeichert</span>
+                        </div>
+                        <div class="data-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Keine sensiblen Daten werden gespeichert</span>
+                        </div>
+                        <div class="data-item">
+                            <i class="fas fa-user-shield"></i>
+                            <span>Ihre Privatsphäre ist geschützt</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cookie-modal-footer">
+                <button id="saveSettings" class="btn-cookie-save">
+                    <i class="fas fa-save"></i> Einstellungen speichern
+                </button>
+                <button id="acceptAllModal" class="btn-cookie-accept-all">
+                    <i class="fas fa-check-double"></i> Alle akzeptieren
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
+    <script src="touch-gestures.js"></script>
+    <script src="mobile-navigation.js"></script>
+    <script src="advanced-swipe.js"></script>
+    <script src="pwa-manager.js"></script>
 </body>
 </html>

@@ -1,0 +1,117 @@
+{
+    "name": "Elektro Eber",
+    "short_name": "ElektroEber",
+    "description": "Professioneller Elektroinstallationsbetrieb für innovative Elektroarbeiten und Smart Home Lösungen",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#f59e0b",
+    "orientation": "portrait",
+    "scope": "/",
+    "lang": "de",
+    "icons": [
+        {
+            "src": "/images/icons/icon-72x72.png",
+            "sizes": "72x72",
+            "type": "image/png",
+            "purpose": "maskable any"
+        },
+        {
+            "src": "/images/icons/icon-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png",
+            "purpose": "maskable any"
+        },
+        {
+            "src": "/images/icons/icon-128x128.png",
+            "sizes": "128x128",
+            "type": "image/png",
+            "purpose": "maskable any"
+        },
+        {
+            "src": "/images/icons/icon-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png",
+            "purpose": "maskable any"
+        },
+        {
+            "src": "/images/icons/icon-152x152.png",
+            "sizes": "152x152",
+            "type": "image/png",
+            "purpose": "maskable any"
+        },
+        {
+            "src": "/images/icons/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable any"
+        },
+        {
+            "src": "/images/icons/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png",
+            "purpose": "maskable any"
+        },
+        {
+            "src": "/images/icons/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable any"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/images/screenshots/desktop-1280x720.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Elektro Eber - Desktop Ansicht"
+        },
+        {
+            "src": "/images/screenshots/mobile-390x844.png",
+            "sizes": "390x844",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "Elektro Eber - Mobile Ansicht"
+        }
+    ],
+    "categories": ["business", "utilities", "productivity"],
+    "shortcuts": [
+        {
+            "name": "Notdienst",
+            "short_name": "Notdienst",
+            "description": "24/7 Elektriker Notdienst",
+            "url": "/services/notdienst",
+            "icons": [
+                {
+                    "src": "/images/icons/emergency-96x96.png",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "Termin buchen",
+            "short_name": "Termin",
+            "description": "Online Termin vereinbaren",
+            "url": "/#contact",
+            "icons": [
+                {
+                    "src": "/images/icons/calendar-96x96.png",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "Services",
+            "short_name": "Services",
+            "description": "Unsere Dienstleistungen",
+            "url": "/#services",
+            "icons": [
+                {
+                    "src": "/images/icons/services-96x96.png",
+                    "sizes": "96x96"
+                }
+            ]
+        }
+    ]
+}

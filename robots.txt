@@ -1,0 +1,62 @@
+User-agent: *
+Allow: /
+
+# Allow all crawlers access to CSS and JS files
+Allow: /styles.css
+Allow: /script.js
+Allow: /*.css
+Allow: /*.js
+
+# Block access to admin areas and sensitive files
+Disallow: /admin-dashboard.html
+Disallow: /private/
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /*.log
+Disallow: /temp/
+Disallow: /cache/
+
+# Block access to duplicate content
+Disallow: /*?
+Disallow: /*&
+Disallow: /search?*
+Disallow: /*utm_*
+
+# Allow access to images
+Allow: /images/
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.webp
+Allow: /*.gif
+Allow: /*.svg
+
+# Specific bot instructions
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# Block problematic bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://elektro-eber.de/sitemap.xml
+
+# Additional sitemaps
+Sitemap: https://elektro-eber.de/sitemap-images.xml
+Sitemap: https://elektro-eber.de/sitemap-news.xml

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔧 Live Debug - Elektro Eber</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .debug-panel {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100vh;
+            background: rgba(0,0,0,0.9);
+            color: #00ff00;
+            padding: 1rem;
+            font-family: monospace;
+            font-size: 12px;
+            z-index: 9999;
+            overflow-y: auto;
+            border-left: 3px solid #00ff00;
+        }
+        
+        .debug-header {
+            color: #ffff00;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.5rem;
+        }
+        
+        .debug-section {
+            margin: 1rem 0;
+            padding: 0.5rem;
+            border-left: 2px solid #333;
+            padding-left: 1rem;
+        }
+        
+        .debug-button {
+            background: #007b00;
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            margin: 0.2rem;
+            cursor: pointer;
+            width: 100%;
+            font-size: 11px;
+        }
+        
+        .debug-button:hover {
+            background: #00ff00;
+            color: black;
+        }
+        
+        .error { color: #ff4444; }
+        .success { color: #44ff44; }
+        .warning { color: #ffaa00; }
+        
+        .main-content {
+            margin-right: 320px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Debug Panel -->
+    <div class="debug-panel">
+        <div class="debug-header">🔧 LIVE DEBUG PANEL</div>
+        
+        <div class="debug-section">
+            <strong>BUTTON TESTS:</strong><br>
+            <button class="debug-button" onclick="testButtonExists()">1. Button existiert?</button>
+            <button class="debug-button" onclick="testButtonClick()">2. Button klickbar?</button>
+            <button class="debug-button" onclick="testModalExists()">3. Modal existiert?</button>
+            <button class="debug-button" onclick="testAppointmentClass()">4. JS Klasse existiert?</button>
+        </div>
+        
+        <div class="debug-section">
+            <strong>MANUAL TESTS:</strong><br>
+            <button class="debug-button" onclick="forceOpenModal()">Modal öffnen (Force)</button>
+            <button class="debug-button" onclick="testBookingManual()">Buchung simulieren</button>
+            <button class="debug-button" onclick="checkLocalStorage()">LocalStorage prüfen</button>
+        </div>
+        
+        <div class="debug-section">
+            <strong>LIVE STATUS:</strong><br>
+            <div id="debugOutput" style="max-height: 400px; overflow-y: auto; font-size: 10px;">
+                Debug-Output startet...<br>
+            </div>
+        </div>
+        
+        <div class="debug-section">
+            <button class="debug-button" onclick="clearDebug()">Clear Log</button>
+            <button class="debug-button" onclick="exportDebug()">Export Log</button>
+        </div>
+    </div>
+    
+    <!-- Main Content (Copy of original index.html relevant parts) -->
+    <div class="main-content">
+        <!-- Simplified hero section with the booking button -->
+        <div style="padding: 2rem; text-align: center; background: var(--bg-secondary);">
+            <h1>🔧 Terminbuchung Live-Test</h1>
+            <p>Hier können Sie testen ob die Terminbuchung funktioniert</p>
+            
+            <button id="openAppointmentModal" class="btn-primary-large" style="margin: 2rem;">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Termin buchen (TEST)</span>
+            </button>
+        </div>
+        
+        <!-- Include original modal from index.html -->
+        <div id="appointmentModal" class="modal">
+            <div class="modal-content appointment-modal">
+                <div class="modal-header">
+                    <h2>📅 Beratungstermin buchen</h2>
+                    <button id="closeModal" class="close-btn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <div class="appointment-steps">
+                    <div class="step active" data-step="service">
+                        <div class="step-number">1</div>
+                        <div class="step-title">Service</div>
+                    </div>
+                    <div class="step" data-step="datetime">
+                        <div class="step-number">2</div>
+                        <div class="step-title">Datum & Zeit</div>
+                    </div>
+                    <div class="step" data-step="details">
+                        <div class="step-number">3</div>
+                        <div class="step-title">Ihre Daten</div>
+                    </div>
+                </div>
+                
+                <!-- Step 1: Service Selection -->
+                <div id="stepService" class="step-content active">
+                    <h3>Wählen Sie Ihren gewünschten Service:</h3>
+                    
+                    <div class="service-options">
+                        <div class="service-option" data-service="general" data-duration="30">
+                            <div class="service-icon">💬</div>
+                            <h4>Allgemeine Beratung</h4>
+                            <p>Erste Beratung zu Ihren Elektro-Projekten</p>
+                            <div class="duration">30 Min • Kostenlos</div>
+                        </div>
+                        
+                        <div class="service-option" data-service="planning" data-duration="60">
+                            <div class="service-icon">📋</div>
+                            <h4>Projektplanung</h4>
+                            <p>Detaillierte Planung Ihres Elektro-Projekts</p>
+                            <div class="duration">60 Min • 50€</div>
+                        </div>
+                        
+                        <div class="service-option" data-service="smart-home" data-duration="45">
+                            <div class="service-icon">🏠</div>
+                            <h4>Smart Home Beratung</h4>
+                            <p>Beratung zu intelligenten Haus-Lösungen</p>
+                            <div class="duration">45 Min • Kostenlos</div>
+                        </div>
+                        
+                        <div class="service-option" data-service="emergency" data-duration="30">
+                            <div class="service-icon">🚨</div>
+                            <h4>Vor-Ort Besichtigung</h4>
+                            <p>Persönliche Besichtigung bei Ihnen vor Ort</p>
+                            <div class="duration">30 Min • 30€</div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-navigation">
+                        <button id="nextToDate" class="btn-primary" disabled>
+                            Weiter zu Datum & Zeit
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Date & Time -->
+                <div id="stepDateTime" class="step-content">
+                    <h3>Wählen Sie Datum und Uhrzeit:</h3>
+                    
+                    <div class="datetime-selection">
+                        <div class="calendar-section">
+                            <div class="calendar-header">
+                                <button id="prevMonth" class="month-nav">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <div id="currentMonth" class="month-title">Januar 2025</div>
+                                <button id="nextMonth" class="month-nav">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="calendar-grid" id="calendarGrid">
+                                <!-- Calendar days will be generated by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div class="time-selection">
+                            <h4>Verfügbare Zeiten:</h4>
+                            <div class="time-slots" id="timeSlots">
+                                <div class="time-slot" data-time="09:00">09:00</div>
+                                <div class="time-slot" data-time="10:00">10:00</div>
+                                <div class="time-slot" data-time="11:00">11:00</div>
+                                <div class="time-slot" data-time="14:00">14:00</div>
+                                <div class="time-slot" data-time="15:00">15:00</div>
+                                <div class="time-slot" data-time="16:00">16:00</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-navigation">
+                        <button id="backToService" class="btn-secondary">
+                            <i class="fas fa-arrow-left"></i>
+                            Zurück zu Service
+                        </button>
+                        <button id="nextToDetails" class="btn-primary" disabled>
+                            Weiter zu Ihren Daten
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Customer Details -->
+                <div id="stepDetails" class="step-content">
+                    <h3>Ihre Kontaktdaten:</h3>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="firstName">Vorname *</label>
+                            <input type="text" id="firstName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lastName">Nachname *</label>
+                            <input type="text" id="lastName" required>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="email">E-Mail Adresse *</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="phone">Telefonnummer *</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="address">Adresse (optional)</label>
+                            <input type="text" id="address" placeholder="Straße, PLZ Ort">
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="message">Nachricht (optional)</label>
+                            <textarea id="message" rows="3" placeholder="Beschreiben Sie kurz Ihr Anliegen..."></textarea>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="privacy" required>
+                                <label for="privacy">Ich akzeptiere die <a href="#" target="_blank">Datenschutzbedingungen</a> *</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-navigation">
+                        <button id="backToDateTime" class="btn-secondary">
+                            <i class="fas fa-arrow-left"></i>
+                            Zurück zu Datum & Zeit
+                        </button>
+                        <button id="bookAppointment" class="btn-primary" disabled>
+                            <i class="fas fa-calendar-check"></i>
+                            Termin verbindlich buchen
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Include the original script.js -->
+    <script src="script.js"></script>
+    
+    <!-- Debug JavaScript -->
+    <script>
+        let debugLog = [];
+        
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString('de-DE');
+            const colorClass = type === 'error' ? 'error' : type === 'success' ? 'success' : type === 'warning' ? 'warning' : '';
+            
+            const logEntry = `[${timestamp}] ${message}`;
+            debugLog.push(logEntry);
+            
+            const output = document.getElementById('debugOutput');
+            output.innerHTML += `<span class="${colorClass}">${logEntry}</span><br>`;
+            output.scrollTop = output.scrollHeight;
+            
+            console.log(message);
+        }
+        
+        function testButtonExists() {
+            const button = document.getElementById('openAppointmentModal');
+            if (button) {
+                log('✅ Button existiert', 'success');
+                log('Button Text: ' + button.textContent);
+            } else {
+                log('❌ Button NICHT gefunden!', 'error');
+            }
+        }
+        
+        function testButtonClick() {
+            const button = document.getElementById('openAppointmentModal');
+            if (button) {
+                log('🖱️ Teste Button-Click...', 'warning');
+                try {
+                    button.click();
+                    log('✅ Button-Click funktioniert', 'success');
+                } catch (error) {
+                    log('❌ Button-Click Fehler: ' + error.message, 'error');
+                }
+            } else {
+                log('❌ Button nicht gefunden für Test', 'error');
+            }
+        }
+        
+        function testModalExists() {
+            const modal = document.getElementById('appointmentModal');
+            if (modal) {
+                log('✅ Modal existiert', 'success');
+                log('Modal Display: ' + window.getComputedStyle(modal).display);
+            } else {
+                log('❌ Modal NICHT gefunden!', 'error');
+            }
+        }
+        
+        function testAppointmentClass() {
+            if (typeof AppointmentBooking !== 'undefined') {
+                log('✅ AppointmentBooking Klasse existiert', 'success');
+            } else {
+                log('❌ AppointmentBooking Klasse NICHT gefunden!', 'error');
+            }
+            
+            if (typeof appointmentBooking !== 'undefined') {
+                log('✅ appointmentBooking Instanz existiert', 'success');
+            } else {
+                log('❌ appointmentBooking Instanz NICHT gefunden!', 'error');
+            }
+        }
+        
+        function forceOpenModal() {
+            const modal = document.getElementById('appointmentModal');
+            if (modal) {
+                modal.style.display = 'flex';
+                log('🔧 Modal FORCE geöffnet', 'warning');
+            } else {
+                log('❌ Modal nicht gefunden für Force-Open', 'error');
+            }
+        }
+        
+        function testBookingManual() {
+            log('🧪 Starte manuelle Buchungs-Simulation...', 'warning');
+            
+            const testBooking = {
+                bookingId: 'DEBUG-MANUAL-' + Date.now(),
+                service: {
+                    type: 'general',
+                    title: 'Debug Test Service',
+                    duration: 30,
+                    price: 'Kostenlos'
+                },
+                date: '2025-01-15',
+                time: '14:00',
+                customer: {
+                    firstName: 'Debug',
+                    lastName: 'Test',
+                    email: 'debug@test.com',
+                    phone: '0123456789',
+                    address: 'Debug Straße 1',
+                    message: 'Debug Test Nachricht'
+                },
+                status: 'Debug',
+                timestamp: new Date().toISOString()
+            };
+            
+            try {
+                const bookings = JSON.parse(localStorage.getItem('elektro-eber-bookings') || '[]');
+                bookings.push(testBooking);
+                localStorage.setItem('elektro-eber-bookings', JSON.stringify(bookings));
+                log('✅ Test-Buchung erfolgreich gespeichert: ' + testBooking.bookingId, 'success');
+            } catch (error) {
+                log('❌ Fehler beim Speichern der Test-Buchung: ' + error.message, 'error');
+            }
+        }
+        
+        function checkLocalStorage() {
+            try {
+                const bookings = JSON.parse(localStorage.getItem('elektro-eber-bookings') || '[]');
+                log('📊 LocalStorage Buchungen: ' + bookings.length, 'success');
+                bookings.forEach((booking, index) => {
+                    log(`  ${index + 1}. ${booking.bookingId} - ${booking.customer?.firstName} ${booking.customer?.lastName}`);
+                });
+            } catch (error) {
+                log('❌ LocalStorage Fehler: ' + error.message, 'error');
+            }
+        }
+        
+        function clearDebug() {
+            document.getElementById('debugOutput').innerHTML = 'Debug-Log geleert...<br>';
+            debugLog = [];
+        }
+        
+        function exportDebug() {
+            const logText = debugLog.join('\n');
+            const blob = new Blob([logText], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `debug-log-${new Date().toISOString().split('T')[0]}.txt`;
+            a.click();
+            log('📁 Debug-Log exportiert', 'success');
+        }
+        
+        // Auto-start beim Laden
+        document.addEventListener('DOMContentLoaded', function() {
+            log('🚀 Live Debug Panel gestartet', 'success');
+            log('Führen Sie die Tests aus um Probleme zu identifizieren');
+            
+            // Auto-Tests durchführen
+            setTimeout(() => {
+                testButtonExists();
+                testModalExists();
+                testAppointmentClass();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
